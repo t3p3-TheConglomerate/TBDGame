@@ -1,4 +1,31 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
+
+export const QUERY_GROUP = gql`
+  query group {
+    _id
+    groupName
+    gameName
+    gameDescription
+    gameImage
+    groupOwner
+    groupMembers {
+      _id
+      username
+    }
+    notes {
+      _id
+      notesText
+      notesAuthor
+      createdAt
+      comments {
+        _id
+        commentText
+        commentAuthor
+        createdAt
+      }
+    }
+  }
+`;
 
 export const QUERY_PRODUCTS = gql`
   query getProducts($category: ID) {
@@ -48,22 +75,35 @@ export const QUERY_CATEGORIES = gql`
   }
 `;
 
+export const GET_ME = gql`
+  query me {
+    me {
+      _id
+      email
+      username
+      groups {
+        _id
+        groupName
+        gameName
+        gameDescription
+        gameImage
+      }
+    }
+  }
+`;
+
 export const QUERY_USER = gql`
   {
     user {
-      firstName
-      lastName
-      orders {
+      _id
+      username
+      email
+      groups {
         _id
-        purchaseDate
-        products {
-          _id
-          name
-          description
-          price
-          quantity
-          image
-        }
+        groupName
+        gameName
+        gameDescription
+        gameImage
       }
     }
   }
