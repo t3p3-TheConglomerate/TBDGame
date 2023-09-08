@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { useMutation } from "@apollo/client";
-import { ADD_THOUGHT as ADD_NOTE } from "../../utils/mutations";
+import { ADD_NOTE } from "../../utils/mutations";
 
 const NoteForm = () => {
   const [formState, setFormState] = useState({
@@ -71,7 +71,7 @@ const NoteForm = () => {
           <textarea
             name="NoteText"
             placeholder="Create your note here"
-            value={formState.noteText}
+            // value={formState.noteText}
             className="form-input w-100"
             onChange={handleChange}
           ></textarea>

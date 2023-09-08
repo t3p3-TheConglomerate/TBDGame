@@ -16,6 +16,9 @@ const resolvers = {
     group: async (parent, { _id }) => {
       return await Group.findById(_id);
     },
+    user: async (parent, { _id }) => {
+      return await User.findById(_id);
+    },
     user: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate(

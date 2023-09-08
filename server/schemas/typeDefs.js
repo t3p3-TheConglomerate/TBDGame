@@ -63,7 +63,8 @@ const typeDefs = gql`
   type Query {
     groups: [Group]
     group(groupName: String): Group
-    user: User
+    user(_id: ID!): User
+    me: User
   }
 
   type Mutation {
