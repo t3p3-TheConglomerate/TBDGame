@@ -118,19 +118,7 @@ export const DELETE_GROUP = gql`
 `;
 
 export const UPDATE_GROUP = gql`
-  mutation updateGroup(
-    $_id: ID!
-    $groupName: String!
-    $gameName: String!
-    $gameDescription: String!
-    $gameImage: String!
-  ) {
-    updateGroup(
-      _id: $_id
-      groupName: $groupName
-      gameName: $gameName
-      gameDescription: $gameDescription
-    ) {
+  mutation updateGroup($_id: ID!, $groupName: String!, $gameName: String!, $gameDescription: String!, $gameImage: String!) {
       _id
       groupName
       gameName
