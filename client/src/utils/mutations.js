@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
@@ -118,27 +118,48 @@ export const DELETE_GROUP = gql`
 `;
 
 export const UPDATE_GROUP = gql`
-  mutation updateGroup($_id: ID!, $groupName: String!, $gameName: String!, $gameDescription: String!, $gameImage: String!) {
-    updateGroup(_id: $_id, groupName: $groupName, gameName: $gameName, gameDescription: $gameDescriptio) {
+  mutation updateGroup(
+    $_id: ID!
+    $groupName: String!
+    $gameName: String!
+    $gameDescription: String!
+    $gameImage: String!
+  ) {
+    updateGroup(
+      _id: $_id
+      groupName: $groupName
+      gameName: $gameName
+      gameDescription: $gameDescription
+    ) {
       _id
-      email
-      username
-      bookCount
-      savedBooks {
-        bookId
-        authors
-        description
-        title
-        image
-        link
+      groupName
+      gameName
+      gameDescription
+      gameImage
+      groupOwner
+      groupMembers {
+        username
+      }
+      notes {
+        _id
+        noteText
+        noteAuthor
+        createdAt
+        category
+        comments {
+          _id
+          commentText
+          commentAuthor
+          createdAt
+        }
       }
     }
   }
 `;
 
 export const CHANGE_OWNER = gql`
-  mutation removeBook($bookId: String!) {
-    removeBook(bookId: $bookId) {
+  mutation changeOwner($_id: ID!, $groupOwner: User!) {
+    changeOwner(_id: $_id) {
       _id
       email
       username
