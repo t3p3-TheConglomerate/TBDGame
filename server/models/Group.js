@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
-const Note = require("./Note");
+const noteSchema = require("./Note");
 
 const groupSchema = new Schema({
   groupName: {
@@ -29,7 +29,12 @@ const groupSchema = new Schema({
       ref: "User",
     },
   ],
-  notes: [Note.Schema],
+  notes: [noteSchema],
+},
+{
+  toJSON: {
+    virtuals: true,
+  }
 });
 
 const Group = mongoose.model("Group", groupSchema);

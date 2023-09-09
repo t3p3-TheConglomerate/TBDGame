@@ -17,6 +17,7 @@ function ApiTest() {
       const data = await response.json();
       setGames(data.results || []);
     } catch (error) {
+      console.log(apiKey, apiUrl)
       console.error('Error fetching data:', error);
     } finally {
       setLoading(false);

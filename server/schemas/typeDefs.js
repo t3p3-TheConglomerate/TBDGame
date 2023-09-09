@@ -73,7 +73,7 @@ const typeDefs = gql`
     addGroup(newGroup: newGroup): Group
     updateGroup(_id: ID!, groupName: String, gameName: String, gameDescription: String, gameImage: String): Group
     deleteGroup(groupId: ID!): User
-    changeOwner(_id: ID!, groupOwner: User)
+    changeOwner(_id: ID!, groupOwner: User): Group
     addNote(newNote: newNote): Group
     deleteNote(noteId: ID!): Group    
     login(email: String!, password: String!): Auth
