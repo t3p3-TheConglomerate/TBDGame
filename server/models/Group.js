@@ -3,39 +3,41 @@ const mongoose = require("mongoose");
 const { Schema } = mongoose;
 const noteSchema = require("./Note");
 
-const groupSchema = new Schema({
-  groupName: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  gameName: {
-    type: String,
-    required: true,
-  },
-  gameDescription: {
-    type: String,
-  },
-  gameImage: {
-    type: String,
-  },
-  groupOwner: {
-    type: Schema.Types.ObjectId,
-    ref: "User",
-  },
-  groupMembers: [
-    {
+const groupSchema = new Schema(
+  {
+    groupName: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    gameName: {
+      type: String,
+      required: true,
+    },
+    gameDescription: {
+      type: String,
+    },
+    gameImage: {
+      type: String,
+    },
+    groupOwner: {
       type: Schema.Types.ObjectId,
       ref: "User",
     },
-  ],
-  notes: [noteSchema],
-},
-{
-  toJSON: {
-    virtuals: true,
+    groupMembers: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
+    notes: [noteSchema],
+  },
+  {
+    toJSON: {
+      virtuals: true,
+    },
   }
-});
+);
 
 const Group = mongoose.model("Group", groupSchema);
 
