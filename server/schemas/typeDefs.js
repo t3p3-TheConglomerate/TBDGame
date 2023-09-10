@@ -20,31 +20,12 @@ const typeDefs = gql`
     notes: [Note]
   }
 
-  input newGroup {
-    _id: ID
-    groupName: String
-    gameName: String
-    gameDescription: String
-    gameImage: String
-    groupOwner: User
-    groupMembers: [User]
-    notes: [Note]
-  }
-
   type Note {
     _id: ID
     noteText: String
     noteAuthor: String
     createdAt: String
     category: String
-    comments: [Comment]
-  }
-
-  input newNote {
-    _id: ID
-    noteText: String
-    noteAuthor: String
-    createdAt: String
     comments: [Comment]
   }
 
@@ -70,11 +51,11 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     updateUser(username: String, email: String, password: String): User
-    addGroup(newGroup: newGroup): Group
+    addGroup(_id: ID!, groupName: String, gameName: String, gameDescription: String, gameImage: String): Group
     updateGroup(_id: ID!, groupName: String, gameName: String, gameDescription: String, gameImage: String): Group
     deleteGroup(groupId: ID!): User
-    changeOwner(_id: ID!, groupOwner: User): Group
-    addNote(newNote: newNote): Group
+    changeOwner(_id: ID!, username: String!, email: String!): Group
+    addNote(noteText: String!, noteAuthor: String!, createdAt: String!, category: String!): Note
     deleteNote(noteId: ID!): Group    
     login(email: String!, password: String!): Auth
   }
