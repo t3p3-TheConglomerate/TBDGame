@@ -60,8 +60,8 @@ export const DELETE_NOTE = gql`
   }
 `;
 export const ADD_GROUP = gql`
-  mutation addGroup($_id: ID!, $groupName: String, $gameName: String, $gameDescription: String, $gameImage: String, $username: String) {
-    addGroup(_id: $_id, groupName: $groupName, gameName: $gameName, gameDescription: $gameDescription, gameImage: $gameImage, username: $username) {
+  mutation addGroup($groupName: String, $gameName: String, $gameDescription: String, $gameImage: String, $username: String) {
+    addGroup(groupName: $groupName, gameName: $gameName, gameDescription: $gameDescription, gameImage: $gameImage, username: $username) {
       _id
       groupName
       gameName

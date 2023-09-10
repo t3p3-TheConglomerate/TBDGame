@@ -37,8 +37,6 @@ const CreateGroup = () => {
 
   const [formState, setFormState] = useState({
     GroupName: "",
-    GroupDescription: "",
-    GroupGame: "",
   });
 
   const [addGroup, { error }] = useMutation(ADD_GROUP);
@@ -49,7 +47,7 @@ const CreateGroup = () => {
       const { data } = await addGroup({
         variables: { ...formState },
       });
-
+      setFormState('')
       window.location.reload();
     } catch (err) {
       console.error(err);
