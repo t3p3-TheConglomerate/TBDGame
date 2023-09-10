@@ -143,6 +143,7 @@ export const UPDATE_GROUP = gql`
         }
       }
   }
+}
 `;
 
 export const CHANGE_OWNER = gql`
