@@ -23,6 +23,10 @@ form {
     font-size: 1rem;
 }
 
+.gameList.highlighted {
+    background-color: #d93030;
+}
+
 .selectedGame {
     display: inline-block;
 }
