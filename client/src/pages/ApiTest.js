@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './ApiTest.css';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -8,7 +9,7 @@ function ApiTest() {
   const [loading, setLoading] = useState(false);
   const [selectedGame, setSelectedGame] = useState(null);
 
-  const apiUrl = `/api/search/?api_key=${apiKey}&format=json&query=${search}`; 
+  const apiUrl = `/api/search/?api_key=${apiKey}&format=json&query=${search}&resources=game`;
 
   const fetchData = async () => {
     try {
@@ -17,7 +18,6 @@ function ApiTest() {
       const data = await response.json();
       setGames(data.results || []);
     } catch (error) {
-      console.log(apiKey, apiUrl)
       console.error('Error fetching data:', error);
     } finally {
       setLoading(false);
@@ -31,56 +31,55 @@ function ApiTest() {
     }
   };
 
-  const handleGameSelection = (selectedGame) => {
-    setSelectedGame(selectedGame);
+  useEffect(() => {
+    if (search) {
+      fetchData();
+    } else {
+      setGames([]);
+    }
+  }, [search]);
+
+  const handleGameClick = (game) => {
+    setSearch('');
+    setSelectedGame(game);
   };
 
   return (
     <div>
       <h1>Game Search</h1>
+      <div className='searchContainer'>
+
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Enter a game title"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-        />
-        <button type="submit">Search</button>
+          />
+        <button type="submit">Select</button>
       </form>
 
-      {games.length > 0 && (
-        <div>
-          <h2>Choose a game:</h2>
-          <select
-            value={selectedGame ? selectedGame.name : ''}
-            onChange={(e) => {
-              const selectedGameName = e.target.value;
-              const game = games.find((g) => g.name === selectedGameName);
-              handleGameSelection(game);
-            }}
-          >
-            <option value="">Select a game</option>
-            {games.map((game) => (
-              <option key={game.guid} value={game.name}>
-                {game.name}
-              </option>
-            ))}
-          </select>
-        </div>
+      {loading ? (
+          <p>Loading...</p>
+          ) : (
+              <ul>
+          {games.map((game) => (
+              <li key={game.guid} className='gameList' onClick={() => handleGameClick(game)}>
+              <h2>{game.name}</h2>
+            </li>
+          ))}
+        </ul>
       )}
+      </div>
 
       {selectedGame && (
-        <div>
+        <div className='selectedGame'>
           <h2>Selected Game: {selectedGame.name}</h2>
           <img src={selectedGame.image?.medium_url} alt={selectedGame.name} />
           <p>GUID: {selectedGame.guid}</p>
           <p>Description: {selectedGame.deck}</p>
         </div>
       )}
-
-      {loading ? (
-        <p>Loading...</p>
-      ) : null}
     </div>
   );
 }

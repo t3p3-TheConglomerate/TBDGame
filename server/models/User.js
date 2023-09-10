@@ -20,8 +20,14 @@ const userSchema = new Schema({
     required: true,
     minlength: 5
   },
-  groups: [Group.schema]
-});
+  groups: [Group.schema],
+},
+{
+  toJSON: {
+    virtuals: true,
+  },
+}
+);
 
 // set up pre-save middleware to create password
 userSchema.pre('save', async function(next) {
