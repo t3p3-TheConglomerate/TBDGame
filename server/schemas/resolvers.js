@@ -19,17 +19,17 @@ const resolvers = {
     user: async (parent, { _id }) => {
       return await User.findById(_id);
     },
-    user: async (parent, args, context) => {
-      if (context.user) {
-        const user = await User.findById(context.user._id).populate(
-          "group.groupMembers"
-        );
+    // user: async (parent, args, context) => {
+    //   if (context.user) {
+    //     const user = await User.findById(context.user._id).populate(
+    //       "group.groupMembers"
+    //     );
 
-        return user;
-      }
+    //     return user;
+    //   }
 
-      throw new AuthenticationError("Not logged in");
-    },
+    //   throw new AuthenticationError("Not logged in");
+    // },
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
@@ -47,7 +47,8 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
-    addGroup: async (parent, { newGroup }, context) => {
+    addGroup: async (parent, { groupName, gameName, gameDescription, gameImage }, context) => {
+      const newGroup = await Group.create({ groupName, gameName, gameDescription, gameImage });
       if (context.user) {
         return await User.findOneAndUpdate(
           { _id: context.user._id },
@@ -64,7 +65,7 @@ const resolvers = {
     },
     updateGroup: async (
       parent,
-      { _id, groupName, gameDescription, gameImage },
+      { _id, groupName, gameName, gameDescription, gameImage },
       context
     ) => {
       console.log(context);
@@ -88,12 +89,17 @@ const resolvers = {
         { new: true }
       );
     },
-    changeOwner: async (parent, { groupOwner }, context) => {
+    changeOwner: async (parent, { _id, username, email }, context) => {
       if (context.user._id == context.group.groupOwner._id) {
+        const newOwner = {
+          _id: _id,
+          username: username,
+          email: email,
+        }
         return await Group.findByIdAndUpdate(
           { _id: context.group._id },
           {
-            groupOwner: groupOwner,
+            groupOwner: newOwner,
           },
           {
             new: true,
@@ -102,9 +108,9 @@ const resolvers = {
       }
       throw new AuthenticationError("Only the group owner can change this");
     },
-    addNote: async (parent, { newNote }, context) => {
+    addNote: async (parent, { noteText, category }, context) => {
       if (context.user) {
-        const noteToAdd = await Note.create({ newNote: newNote });
+        const noteToAdd = await Note.create({ noteText: noteText, noteAuthor: context.user.username, category: category });
         return await Group.findOneAndUpdate(
           {
             _id: context.group._id,
@@ -118,15 +124,15 @@ const resolvers = {
         );
       }
     },
-    deleteNote: async (parent, { noteId }, context) => {
+    deleteNote: async (parent, { _id }, context) => {
       if (context.user) {
-        await Note.findOneAndDelete({ noteId: noteId });
+        await Note.findOneAndDelete({ _id: _id });
         return await Group.findOneAndUpdate(
           {
             _id: context.group._id,
           },
           {
-            $pull: { notes: { noteId: noteId } },
+            $pull: { notes: { _id: _id } },
           },
           {
             new: true,

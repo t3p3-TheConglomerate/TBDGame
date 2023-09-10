@@ -25,8 +25,8 @@ export const LOGIN = gql`
 `;
 
 export const ADD_NOTE = gql`
-  mutation addNote($newNote: newNote!) {
-    addNote(newNote: $newNote) {
+  mutation addNote($noteText: String!, $noteAuthor: String!, $createdAt: String!, $category: String!) {
+    addNote(noteText: $noteText, noteAuthor: $noteAuthor, createdAt: $createdAt, category: $category) {
       _id
       noteText
       noteAuthor
@@ -60,8 +60,8 @@ export const DELETE_NOTE = gql`
   }
 `;
 export const ADD_GROUP = gql`
-  mutation addGroup($newGroup: newGroup!) {
-    addGroup(newGroup: $newGroup) {
+  mutation addGroup($_id: ID!, $groupName: String, $gameName: String, $gameDescription: String, $gameImage: String, $username: String) {
+    addGroup(_id: $_id, groupName: $groupName, gameName: $gameName, gameDescription: $gameDescription, gameImage: $gameImage, username: $username) {
       _id
       groupName
       gameName
@@ -142,13 +142,13 @@ export const UPDATE_GROUP = gql`
           createdAt
         }
       }
-    }
   }
+}
 `;
 
 export const CHANGE_OWNER = gql`
-  mutation changeOwner($_id: ID!, $groupOwner: User!) {
-    changeOwner(_id: $_id) {
+  mutation changeOwner($_id: ID!, $username: String!, $email: String!) {
+    changeOwner(_id: $_id, username: $username, email: $email) {
       _id
       email
       username

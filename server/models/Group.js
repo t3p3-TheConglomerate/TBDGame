@@ -12,7 +12,6 @@ const groupSchema = new Schema(
     },
     gameName: {
       type: String,
-      required: true,
     },
     gameDescription: {
       type: String,
