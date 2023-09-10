@@ -51,8 +51,8 @@ const typeDefs = gql`
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     updateUser(username: String, email: String, password: String): User
-    addGroup(_id: ID!, groupName: String, gameName: String, gameDescription: String, gameImage: String): Group
-    updateGroup(_id: ID!, groupName: String, gameName: String, gameDescription: String, gameImage: String): Group
+    addGroup(_id: ID!, groupName: String, gameName: String, gameDescription: String, gameImage: String, username: String): Group
+    updateGroup(_id: ID!, groupName: String, gameName: String, gameDescription: String, gameImage: String, username: String): Group
     deleteGroup(groupId: ID!): User
     changeOwner(_id: ID!, username: String!, email: String!): Group
     addNote(noteText: String!, noteAuthor: String!, createdAt: String!, category: String!): Note
