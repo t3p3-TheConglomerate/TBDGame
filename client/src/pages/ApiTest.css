@@ -1,0 +1,33 @@
+li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li:hover {
+    background-color: #d93030;
+}
+
+form {
+   display: inline;
+}
+
+.gameList {
+    display: block;
+    text-decoration: none;
+    width: fit-content;
+}
+
+.gameList h2 {
+    font-size: 1rem;
+}
+
+.selectedGame {
+    display: inline-block;
+}
+
+ul {
+    border: 0;
+    padding-left: 1rem;
+}

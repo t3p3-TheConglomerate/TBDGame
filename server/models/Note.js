@@ -9,10 +9,6 @@ const noteSchema = new Schema({
     maxlength: 280,
     trim: true,
   },
-  noteId: {
-    type: String,
-    required: true,
-  },
   noteAuthor: {
     type: String,
     required: true,

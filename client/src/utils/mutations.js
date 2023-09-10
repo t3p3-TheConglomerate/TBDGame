@@ -142,7 +142,6 @@ export const UPDATE_GROUP = gql`
           createdAt
         }
       }
-    }
   }
 `;
 

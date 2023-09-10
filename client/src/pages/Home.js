@@ -3,6 +3,7 @@ import { useQuery } from "@apollo/client";
 
 import NoteForm from "../components/NoteForm";
 import NoteList from "../components/NoteList";
+import CreateGroup from "../components/CreateGroup";
 
 import { QUERY_GROUP } from "../utils/queries";
 
@@ -17,7 +18,7 @@ const Home = () => {
           className="col-12 col-md-10 mb-3 p-3"
           style={{ border: "1px dotted #1a1a1a" }}
         >
-          < NoteForm/>
+          <NoteForm />
         </div>
         <div className="col-12 col-md-8 mb-3">
           {loading ? (
@@ -26,6 +27,9 @@ const Home = () => {
             <NoteList notes={notes} title="Some Feed for Thought(s)..." />
           )}
         </div>
+      </div>
+      <div>
+        <CreateGroup />
       </div>
     </main>
   );
