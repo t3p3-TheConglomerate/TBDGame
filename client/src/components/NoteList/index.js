@@ -7,7 +7,7 @@ const NoteList = ({ notes, group }) => {
 
   return (
     <div>
-      <h3>{group}</h3>
+      <h3>GROUP</h3>
       {notes &&
         notes.map((note) => (
           <div key={note._id} className="card mb-3">

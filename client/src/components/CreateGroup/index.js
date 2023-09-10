@@ -36,9 +36,8 @@ const CreateGroup = () => {
   }
 
   const [formState, setFormState] = useState({
-    GroupName: "",
-    GroupDescription: "",
-    GroupGame: "",
+    groupName: "",
+    // GroupGame: "",
   });
 
   const [addGroup, { error }] = useMutation(ADD_GROUP);
@@ -70,7 +69,7 @@ const CreateGroup = () => {
         <button onClick={closeModal}>close</button>
         <div>Group name</div>
         <form onSubmit={handleFormSubmit}>
-          <input />
+          <input name="GroupName" />
           <button>AUTOCOMPLETE SEARCH</button>
           <button>Create group button</button>
         </form>
