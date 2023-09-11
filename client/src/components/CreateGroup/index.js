@@ -35,14 +35,7 @@ const CreateGroup = () => {
     setIsOpen(false);
   }
 
-  const [formState, setFormState] = useState({
-<<<<<<< HEAD
-    groupName: "",
-    // GroupGame: "",
-=======
-    GroupName: "",
->>>>>>> 2bfa8bc5b46eec0730cd2783c42a83bc4459017f
-  });
+  const [formState, setFormState] = useState('');
 
   const [addGroup, { error }] = useMutation(ADD_GROUP);
   const handleFormSubmit = async (event) => {
@@ -50,10 +43,10 @@ const CreateGroup = () => {
 
     try {
       const { data } = await addGroup({
-        variables: { ...formState },
+        variables: { groupName: formState },
       });
       setFormState('')
-      window.location.reload();
+      // window.location.reload();
     } catch (err) {
       console.error(err);
     }
@@ -73,7 +66,7 @@ const CreateGroup = () => {
         <button onClick={closeModal}>close</button>
         <div>Group name</div>
         <form onSubmit={handleFormSubmit}>
-          <input name="GroupName" />
+          <input name="GroupName" onChange={(e) => setFormState(e.target.value)}/>
           <button>AUTOCOMPLETE SEARCH</button>
           <button>Create group button</button>
         </form>

@@ -15,7 +15,7 @@ const typeDefs = gql`
     gameName: String
     gameDescription: String
     gameImage: String
-    groupOwner: User
+    groupOwner: String
     groupMembers: [User]
     notes: [Note]
   }
