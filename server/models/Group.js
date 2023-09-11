@@ -12,7 +12,6 @@ const groupSchema = new Schema(
     },
     gameName: {
       type: String,
-      required: true,
     },
     gameDescription: {
       type: String,
@@ -21,8 +20,7 @@ const groupSchema = new Schema(
       type: String,
     },
     groupOwner: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
+      type: String,
     },
     groupMembers: [
       {

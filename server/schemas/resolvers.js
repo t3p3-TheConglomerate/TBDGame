@@ -49,19 +49,20 @@ const resolvers = {
     },
     addGroup: async (parent, { groupName, gameName, gameDescription, gameImage }, context) => {
       const newGroup = await Group.create({ groupName, gameName, gameDescription, gameImage });
-      if (context.user) {
-        return await User.findOneAndUpdate(
-          { _id: context.user._id },
-          {
-            $addToSet: { groups: newGroup },
-          },
-          {
-            new: true,
-            runValidators: true,
-          }
-        );
-      }
-      throw new AuthenticationError("You need to be logged in!");
+      // if (context.user) {
+        // return await User.findOneAndUpdate(
+          // { _id: context.user._id },
+          // {
+            // $addToSet: { groups: newGroup },
+        //   },
+        //   {
+        //     new: true,
+        //     runValidators: true,
+        //   }
+        // );
+      // }
+      // throw new AuthenticationError("You need to be logged in!");
+      return newGroup;
     },
     updateGroup: async (
       parent,

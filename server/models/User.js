@@ -17,10 +17,12 @@ const userSchema = new Schema({
   },
   password: {
     type: String,
-    required: true,
+
     minlength: 5
   },
-  groups: [Group.schema],
+  groups: {
+    type: String,
+  },
 },
 {
   toJSON: {
