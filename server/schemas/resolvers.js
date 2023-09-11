@@ -48,20 +48,20 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
     addGroup: async (parent, { groupName, gameName, gameDescription, gameImage }, context) => {
-      const newGroup = await Group.create({ groupName, gameName, gameDescription, gameImage, groupOwner: context.user });
-      // if (context.user) {
-        // return await User.findOneAndUpdate(
-        //   { _id: context.user._id },
-        //   {
-        //     $addToSet: { groups: newGroup },
-        //   },
-        //   {
-        //     new: true,
-        //     runValidators: true,
-        //   }
-        // );
-      // }
-      // throw new AuthenticationError("You need to be logged in!");
+      const newGroup = await Group.create({ groupName, gameName, gameDescription, gameImage, groupOwner: context.user, groupMembers: [context.user._id] });
+      if (context.user) {
+        return await User.findOneAndUpdate(
+          { _id: context.user._id },
+          {
+            $addToSet: { groups: newGroup },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+      throw new AuthenticationError("You need to be logged in!");
       return newGroup
     },
     updateGroup: async (
@@ -81,12 +81,12 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
-    deleteGroup: async (parent, { groupId }, context) => {
-      await Group.findOneAndDelete({ _id: groupId });
+    deleteGroup: async (parent, { _id }, context) => {
+      await Group.findOneAndDelete({ _id: _id });
 
       return await User.updateMany(
-        { groups: groupId },
-        { $pull: { groups: groupId } },
+        { groups: _id },
+        { $pull: { groups: _id } },
         { new: true }
       );
     },
