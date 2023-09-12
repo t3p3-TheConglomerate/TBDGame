@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { useMutation } from "@apollo/client";
 import { ADD_NOTE } from "../../utils/mutations";
-import {QUERY_ME } from "../../utils/queries";
+import { QUERY_ME } from "../../utils/queries";
 
 const NoteForm = () => {
   const [formState, setFormState] = useState({
@@ -10,10 +10,10 @@ const NoteForm = () => {
     category: "",
     noteAuthor: "",
   });
+
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addNote, { error }] = useMutation(ADD_NOTE);
-
 
   // const [addNote, { error }] = useMutation(ADD_NOTE, {
   //   update(cache, { data: { addNote } }) {

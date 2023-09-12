@@ -5,7 +5,7 @@ import { idbPromise } from "../../utils/helpers";
 import spinner from "../../assets/spinner.gif";
 import { QUERY_GROUP } from "../../utils/queries";
 import { GET_ME } from "../../utils/queries";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 function GroupList() {
   const { loading, data } = useQuery(GET_ME);
@@ -52,32 +52,34 @@ function GroupList() {
             : "You have no saved books!"}
         </h2> */}
       <div className="Row">
-        {userData?.groups.map((group) => {
-          return (
-            <Col md="4">
-              <Card key={group.groupName} border="dark">
-                {group.gameImage ? (
-                  <Card.Img
-                    src={group.gameImage}
-                    alt={`The cover for ${group.groupName}`}
-                    variant="top"
-                  />
-                ) : null}
-                <Card.Body>
-                  <Card.Title>{group.groupName}</Card.Title>
-                  <p className="small">Group: {group.groupName}</p>
-                  <Card.Text>{group.gameDescription}</Card.Text>
-                  <Button
-                    className="btn-block btn-danger"
-                    // onClick={() => handleDeleteBook(group._id)}
-                  >
-                <Link to={`/group/${group._id}`}>View Group</Link>
-                  </Button>
-                </Card.Body>
-              </Card>
-            </Col>
-          );
-        })}
+        {userData &&
+          userData.groups &&
+          userData?.groups?.map((group) => {
+            return (
+              <Col md="4">
+                <Card key={group.groupName} border="dark">
+                  {group.gameImage ? (
+                    <Card.Img
+                      src={group.gameImage}
+                      alt={`The cover for ${group.groupName}`}
+                      variant="top"
+                    />
+                  ) : null}
+                  <Card.Body>
+                    <Card.Title>{group.groupName}</Card.Title>
+                    <p className="small">Group: {group.groupName}</p>
+                    <Card.Text>{group.gameDescription}</Card.Text>
+                    <Button
+                      className="btn-block btn-danger"
+                      // onClick={() => handleDeleteBook(group._id)}
+                    >
+                      <Link to={`/group/${group._id}`}>View Group</Link>
+                    </Button>
+                  </Card.Body>
+                </Card>
+              </Col>
+            );
+          })}
       </div>
       {/* </Container> */}
     </>
