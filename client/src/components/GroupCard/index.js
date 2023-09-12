@@ -1,41 +1,29 @@
 import React from "react";
-import {
-  MDBCard,
-  MDBCardBody,
-  MDBCardTitle,
-  MDBCardText,
-  MDBCardHeader,
-  MDBCardFooter,
-  MDBBtn,
-} from "mdb-react-ui-kit";
+import { Link } from "react-router-dom";
+import { pluralize } from "../../utils/helpers";
+import Group from "../../../../server/models/Group";
 
-const GroupCard = () => {
+import { idbPromise } from "../../utils/helpers";
+
+function GroupCard(Group) {
+
+
+  const { _id,  gameName, gameDescription, gameImage, groupOwner, groupMembers, notes } = Group;
+
+
+
+
   return (
-    <MDBCard>
-      <MDBRipple
-        rippleColor="light"
-        rippleTag="div"
-        className="bg-image hover-overlay"
-      >
-        <MDBCardImage
-          src="https://mdbootstrap.com/img/new/standard/nature/111.webp"
-          fluid
-          alt="Game Image"
+    <div className="card px-1 py-1">
+      <Link to={`/group/${}`}>
+        <img
+          alt={}
+          src={`/images/${}`}
         />
-        <a>
-          <div
-            className="mask"
-            style={{ backgroundColor: "rgba(251, 251, 251, 0.15)" }}
-          ></div>
-        </a>
-      </MDBRipple>
-      <MDBCardBody>
-        <MDBCardTitle>Group Name</MDBCardTitle>
-        <MDBCardText>Notifications/ group description</MDBCardText>
-        <MDBBtn href="#">Go to Group</MDBBtn>
-      </MDBCardBody>
-    </MDBCard>
+        <p>{}</p>
+      </Link>
+    </div>
   );
-};
+}
 
 export default GroupCard;

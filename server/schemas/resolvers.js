@@ -5,10 +5,10 @@ const { signToken } = require("../utils/auth");
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
-      if (context.user) {
-        return User.findOne({ _id: context.user._id });
-      }
-      throw new AuthenticationError("You need to be logged in!");
+      // if (context.user) {
+      return User.findOne({ _id: context.user._id });
+      // }
+      // throw new AuthenticationError("You need to be logged in!");
     },
     groups: async () => {
       return await Group.find();
@@ -47,8 +47,19 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
-    addGroup: async (parent, { groupName, gameName, gameDescription, gameImage }, context) => {
-      const newGroup = await Group.create({ groupName, gameName, gameDescription, gameImage, groupOwner: context.user, groupMembers: [context.user._id] });
+    addGroup: async (
+      parent,
+      { groupName, gameName, gameDescription, gameImage },
+      context
+    ) => {
+      const newGroup = await Group.create({
+        groupName,
+        gameName,
+        gameDescription,
+        gameImage,
+        groupOwner: context.user,
+        groupMembers: [context.user._id],
+      });
       if (context.user) {
         return await User.findOneAndUpdate(
           { _id: context.user._id },
@@ -62,7 +73,7 @@ const resolvers = {
         );
       }
       throw new AuthenticationError("You need to be logged in!");
-      return newGroup
+      return newGroup;
     },
     updateGroup: async (
       parent,
@@ -96,7 +107,7 @@ const resolvers = {
           _id: _id,
           username: username,
           email: email,
-        }
+        };
         return await Group.findByIdAndUpdate(
           { _id: context.group._id },
           {
@@ -111,7 +122,11 @@ const resolvers = {
     },
     addNote: async (parent, { noteText, category }, context) => {
       if (context.user) {
-        const noteToAdd = await Note.create({ noteText: noteText, noteAuthor: context.user.username, category: category });
+        const noteToAdd = await Note.create({
+          noteText: noteText,
+          noteAuthor: context.user.username,
+          category: category,
+        });
         return await Group.findOneAndUpdate(
           {
             _id: context.group._id,

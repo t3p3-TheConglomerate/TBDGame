@@ -4,6 +4,7 @@ import { useQuery } from "@apollo/client";
 import NoteForm from "../components/NoteForm";
 import NoteList from "../components/NoteList";
 import CreateGroup from "../components/CreateGroup";
+import GroupList from "../components/GroupList";
 
 import { QUERY_GROUP } from "../utils/queries";
 
@@ -30,6 +31,7 @@ const Home = () => {
       </div>
       <div>
         <CreateGroup />
+        <GroupList />
       </div>
     </main>
   );
