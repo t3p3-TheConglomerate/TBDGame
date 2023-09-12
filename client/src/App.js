@@ -66,10 +66,10 @@ function App() {
                 path="/success" 
                 element={<Success />} 
               /> */}
-              <Route 
+              {/* <Route 
                 path="/orderHistory" 
                 element={<OrderHistory />} 
-              />
+              /> */}
               {/* <Route 
                 path="/products/:id" 
                 element={<Detail />} 
