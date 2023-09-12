@@ -85,7 +85,7 @@ const ApiTest = () => {
         </div>
       ) : (
         <div className='searchContainer'>
-          <h1>Search for a game</h1>
+          <h1>Game Search</h1>
           <form onSubmit={handleSubmit}>
             <input
               type="text"

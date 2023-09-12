@@ -8,8 +8,32 @@ import { GET_ME } from "../../utils/queries";
 
 function GroupList() {
   const { loading, data } = useQuery(GET_ME);
-  const userData = data?.me || data?.user || {groups: []};
-  console.log(userData);
+  const userData = data?.me || data?.user || {};
+  console.log(data);
+  // if (loading) {
+  //   return <h2>LOADING...</h2>;
+  // }
+  // if (error) {
+  //   return <h2>`Error: ${error.message}`</h2>;
+  // }
+  // useEffect(() => {
+  //   if (data) {
+  //     dispatch({
+  //       type: UPDATE_PRODUCTS,
+  //       products: data.products,
+  //     });
+  //     data.products.forEach((product) => {
+  //       idbPromise('products', 'put', product);
+  //     });
+  //   } else if (!loading) {
+  //     idbPromise('products', 'get').then((products) => {
+  //       dispatch({
+  //         type: UPDATE_PRODUCTS,
+  //         products: products,
+  //       });
+  //     });
+  //   }
+  // }, [data, loading, dispatch]);
 
   return (
     <>

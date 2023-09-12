@@ -1,0 +1,57 @@
+div.card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+div.name {
+    align-items: center;
+    align-self: center;
+    font-size: larger;
+}
+
+div.container {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+div.container div {
+    border: 1px solid black;
+}
+
+div.game {
+    width: 25vw;
+}
+
+form input{
+    width: 85%;
+}
+
+div.notes {
+    width:70vw;
+}
+
+div.members {
+    padding-left: 8%;
+}
+
+.title {
+    font-size: x-large;
+    font-weight: bolder;
+    text-align: center;
+}
+
+li.note {
+    list-style: none;
+    border: 1px black solid;
+    padding: 1em;
+}
+
+ul {
+    padding: 0;
+}
+
+li.member {
+    list-style: none;
+}
