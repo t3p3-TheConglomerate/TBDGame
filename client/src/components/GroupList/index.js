@@ -16,7 +16,6 @@ function GroupList() {
   // if (error) {
   //   return <h2>`Error: ${error.message}`</h2>;
   // }
-  dddd;
   // useEffect(() => {
   //   if (data) {
   //     dispatch({
