@@ -26,7 +26,7 @@ body {
   line-height: 1.5;
   font-size: 16px;
   color: var(--dark);
-  background-color: var(--light);
+  background-color: var(--dark);
 }
 
 h1,
@@ -123,7 +123,7 @@ span[role="img"] {
 }
 
 form {
-  width: 40%;
+  width: 100%;
 }
 
 input {
@@ -201,7 +201,7 @@ input:focus {
 }
 
 .card {
-  width: 25%;
+  width: 33%;
   text-align: center;
   background-color: #fff;
 }

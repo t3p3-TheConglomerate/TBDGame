@@ -38,8 +38,8 @@ const NoteForm = () => {
   };
 
   return (
-    <div>
-      <h3>Add your Note to the Tavern Board</h3>
+    <div className="card p-4">
+      <h3>Add a Note</h3>
 
       <p
         className={`m-0 ${
@@ -50,7 +50,7 @@ const NoteForm = () => {
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
       <form
-        className="flex-row justify-center justify-space-between-md align-center"
+        className="flex-row"
         onSubmit={handleFormSubmit}
       >
         <div className="col-12 col-lg-9">
@@ -77,11 +77,11 @@ const NoteForm = () => {
           ></textarea>
         </div>
 
-        <div className="col-12 col-lg-3">
+
           <button className="btn btn-primary btn-block py-3" type="submit">
             Post Note
           </button>
-        </div>
+
         {error && (
           <div className="col-12 my-3 bg-danger text-white p-3">
             Something went wrong...
