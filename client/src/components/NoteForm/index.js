@@ -89,6 +89,9 @@ const NoteForm = () => {
             <option value="music">music</option>
             <option value="art">art</option>
             <option value="gameplay">gameplay</option>
+            <option value="narrative">narrative</option>
+            <option value="graphics">graphics</option>
+            <option value="misc">misc</option>
           </select>
         </div>
 
