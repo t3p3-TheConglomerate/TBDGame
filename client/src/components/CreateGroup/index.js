@@ -46,7 +46,7 @@ const CreateGroup = () => {
         variables: { groupName: formState },
       });
       setFormState('')
-      // window.location.reload();
+      window.location.reload();
     } catch (err) {
       console.error(err);
     }
