@@ -120,16 +120,20 @@ const resolvers = {
       }
       throw new AuthenticationError("Only the group owner can change this");
     },
-    addNote: async (parent, { noteText, category }, context) => {
+    addNote: async (parent, { groupId, noteText, noteAuthor, category }, context) => {
       if (context.user) {
+        console.log('Step 1');
         const noteToAdd = await Note.create({
           noteText: noteText,
           noteAuthor: context.user.username,
+          // noteAuthor: noteAuthor,
           category: category,
         });
-        return await Group.findOneAndUpdate(
+        console.log("addNote",noteToAdd)
+      
+        await Group.findOneAndUpdate(
           {
-            _id: context.group._id,
+            _id: groupId, //_id: context.group._id
           },
           {
             $addToSet: { notes: noteToAdd },
@@ -138,6 +142,7 @@ const resolvers = {
             new: true,
           }
         );
+        return noteToAdd;
       }
     },
     deleteNote: async (parent, { _id }, context) => {

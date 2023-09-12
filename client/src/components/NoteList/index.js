@@ -1,9 +1,9 @@
 import React from "react";
 
 const NoteList = ({ notes, group }) => {
-  // if (!notes.length) {
-  //   return <h3>No Notes Yet</h3>;
-  // }
+  if (!notes.length) {
+    return <h3>No Notes Yet</h3>;
+  }
 
   return (
     <div>

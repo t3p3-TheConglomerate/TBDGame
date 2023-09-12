@@ -5,6 +5,7 @@ import { idbPromise } from "../../utils/helpers";
 import spinner from "../../assets/spinner.gif";
 import { QUERY_GROUP } from "../../utils/queries";
 import { GET_ME } from "../../utils/queries";
+import { Link } from 'react-router-dom';
 
 function GroupList() {
   const { loading, data } = useQuery(GET_ME);
@@ -40,13 +41,13 @@ function GroupList() {
                 ) : null}
                 <Card.Body>
                   <Card.Title>{group.groupName}</Card.Title>
-                  <p className="small">Authors: {}</p>
+                  <p className="small">Group: {group.groupName}</p>
                   <Card.Text>{group.gameDescription}</Card.Text>
                   <Button
                     className="btn-block btn-danger"
                     // onClick={() => handleDeleteBook(group._id)}
                   >
-                    Delete this Book!
+                <Link to={`/group/${group._id}`}>View Group</Link>
                   </Button>
                 </Card.Body>
               </Card>
