@@ -32,7 +32,6 @@ function Signup(props) {
   return (
     <div className="container my-4">
       <div className="card p-4">
-      <Link to="/login">← Go to Login</Link>
 
       <h2>Signup</h2>
       <form onSubmit={handleFormSubmit}>
@@ -66,10 +65,11 @@ function Signup(props) {
             onChange={handleChange}
           />
         </div>
-        <div className="flex-row flex-end">
-          <button type="submit">Submit</button>
+        <div className="flex-row flex-end mb-4">
+          <button className="button" type="submit">Submit</button>
         </div>
       </form>
+      <Link to="/login">← Go to Login</Link>
       </div>
     </div>
   );

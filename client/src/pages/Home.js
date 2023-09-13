@@ -13,12 +13,9 @@ const Home = () => {
   const notes = data?.notes || [];
 
   return (
-    <main>
+    <main className="container my-4">
       <div className="flex-row justify-center">
-        <div
-          className="col-12 col-md-10 mb-3 p-3"
-          style={{ border: "1px dotted #1a1a1a" }}
-        >
+        
           <NoteForm />
         </div>
         <div className="col-12 col-md-8 mb-3">
@@ -28,7 +25,7 @@ const Home = () => {
             <NoteList notes={notes} title="Some Feed for Thought(s)..." />
           )}
         </div>
-      </div>
+
       <div>
         <CreateGroup />
         {/* <GroupList /> */}

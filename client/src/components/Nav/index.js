@@ -45,11 +45,10 @@ function Nav() {
   }
 
   return (
-    <header className="flex-row px-1 bg-primary">
+    <header className="flex-row px-1 container">
       <h1>
         <Link to="/">
           <span role="img" aria-label="clinking mugs">🍻 </span>
-          Uller's Tavern
         </Link>
       </h1>
 

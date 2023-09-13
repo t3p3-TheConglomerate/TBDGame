@@ -32,7 +32,6 @@ function Login(props) {
   return (
     <div className="container my-4">
       <div className="card p-4">
-      <Link to="/signup">← Go to Signup</Link>
 
       <h2>Login</h2>
       <form onSubmit={handleFormSubmit}>
@@ -61,10 +60,10 @@ function Login(props) {
             <p className="error-text">The provided credentials are incorrect</p>
           </div>
         ) : null}
-        <div className="flex-row flex-end">
-          <button className="button" type="submit">Submit</button>
-        </div>
+          <button className="button mb-4" type="submit">Submit</button>
+
       </form>
+      <Link to="/signup">Go to Signup</Link>
       </div>
     </div>
   );

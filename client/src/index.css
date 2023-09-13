@@ -1,9 +1,10 @@
 :root {
   --primary: #23a5f1;
   --secondary: #f2b558;
-  --tertiary: #d2742b;
-  --light: #f2e2c4;
-  --dark: #282828;
+  --tertiary: #4f1602;
+  --light: #E6EDF2;
+  --dark: #2d0d00;
+  --darkest: #110400;
   --error: rgb(228, 46, 1);
   --spacing-one: calc(1rem * 0.5);
   --spacing-two: calc(1rem);
@@ -25,8 +26,8 @@ body {
   font-weight: 400;
   line-height: 1.5;
   font-size: 16px;
-  color: var(--dark);
-  background-color: var(--dark);
+  color: var(--light);
+  background-color: var(--darkest);
 }
 
 h1,
@@ -39,6 +40,7 @@ h6 {
   font-weight: 500;
   margin: 5px 0;
   line-height: 1.25;
+  color: var(--light);
 }
 
 h1 {
@@ -71,21 +73,28 @@ p {
 }
 
 a {
-  color: var(--tertiary);
+  color: var(--light);
   text-decoration: none;
   font-weight: bold;
+  color: var(--secondary);
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  color: var(--primary)
 }
 
 header {
-  background: var(--secondary);
+  background: var(--darkest);
+}
+
+header h1 {
+  font-size: 6rem;
+  display: block;
 }
 
 header a {
-  color: var(--dark);
+  color: var(--light);
 }
 
 header a:hover {
@@ -94,6 +103,8 @@ header a:hover {
 
 button {
   font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: .1rem;
   color: var(--dark);
   text-decoration: none;
   padding: .5rem .75rem;
@@ -102,7 +113,9 @@ button {
   outline: none;
   cursor: pointer;
   margin: 0 1px;
-  background-color: var(--tertiary);
+  background-color: var(--primary);
+  text-transform: uppercase;
+  width: 100%;
 }
 
 button:hover {
@@ -202,13 +215,25 @@ input:focus {
 
 .card {
   width: 33%;
-  text-align: center;
-  background-color: #fff;
+  text-align: left;
+  background-color: var(--dark);
+  color: var(--light);
+  border: 1px solid var(--tertiary);
 }
 
 .error-text {
   color: var(--error);
 }
+
+.alert {
+  position: relative;
+  padding: .5rem 1rem;
+  margin: 1rem 0;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+
 
 @media screen and (max-width: 768px) {
   .card {

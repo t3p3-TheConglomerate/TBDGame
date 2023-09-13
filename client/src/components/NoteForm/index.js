@@ -49,41 +49,40 @@ const NoteForm = () => {
         Character Count: {characterCount}/280
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
-      <form
-        className="flex-row"
-        onSubmit={handleFormSubmit}
-      >
-        <div className="col-12 col-lg-9">
+      <form onSubmit={handleFormSubmit}>
+        <div className="my-2">
+        <label className="form-label" htmlFor="category">Category</label>
           <select
-            className="form-input"
+            className="form-select"
             name="noteCategory"
             value={formState.noteCategory}
             onChange={handleChange}
           >
-            <option value="">Choose the Notes category</option>
-            <option value="music">music</option>
-            <option value="art">art</option>
-            <option value="gameplay">gameplay</option>
+            <option value="">Choose a category</option>
+            <option value="music">Music</option>
+            <option value="art">Art</option>
+            <option value="gameplay">Gameplay</option>
           </select>
         </div>
 
-        <div className="col-12">
+        <div className="my-2">
+          <label className="form-label" htmlFor="note">Note</label>
           <textarea
             name="NoteText"
             placeholder="Create your note here"
             // value={formState.noteText}
-            className="form-input w-100"
+            className="w-100 form-control"
             onChange={handleChange}
           ></textarea>
         </div>
 
 
-          <button className="btn btn-primary btn-block py-3" type="submit">
+          <button className="button" type="submit">
             Post Note
           </button>
 
         {error && (
-          <div className="col-12 my-3 bg-danger text-white p-3">
+          <div className="alert alert-danger d-flex align-items-center" role="alert">
             Something went wrong...
           </div>
         )}
