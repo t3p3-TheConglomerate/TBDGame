@@ -43,8 +43,9 @@ const typeDefs = gql`
 
   type Query {
     groups: [Group]
-    group(_id: ID): Group
+    group(_id: ID!): Group
     user(_id: ID!): User
+    users: [User]
     me: User
   }
 
@@ -52,12 +53,13 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     updateUser(username: String, email: String, password: String): User
     addGroup(groupName: String, gameName: String, gameDescription: String, gameImage: String, username: String): Group
-    updateGroup(_id: ID!, groupName: String, gameName: String, gameDescription: String, gameImage: String, username: String): Group
+    updateGroup(_id: ID!, groupName: String, gameName: String, gameDescription: String): Group
     deleteGroup(_id: ID!): User
     changeOwner(_id: ID!, username: String!, email: String!): Group
     addNote(groupId: ID!, noteText: String!, noteAuthor: String!, category: String): Note
-    deleteNote(_id: ID!): Group    
+    deleteNote(_id: ID!): Note    
     login(email: String!, password: String!): Auth
+    addMember(_id: ID!, groupId: ID!): User
   }
 `;
 

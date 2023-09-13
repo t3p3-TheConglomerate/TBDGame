@@ -84,3 +84,13 @@ export const QUERY_USER = gql`
     }
   }
 `;
+
+export const QUERY_SINGLE_USER = gql`
+query singleUser($id: ID!) {
+  user(_id: $id) {
+      _id
+      username
+      email
+    }
+  }
+`;

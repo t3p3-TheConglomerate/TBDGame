@@ -14,7 +14,7 @@ import { QUERY_SINGLE_GROUP } from "../utils/queries";
 function ApiTest() {
   const { groupId } = useParams();
   const { loading, data } = useQuery(QUERY_SINGLE_GROUP, {
-    variables: { id: groupId },
+    variables: { _id: groupId },
   });
   const group = data?.group || {};
   
