@@ -266,7 +266,7 @@ input:focus {
 .gamecard {
   width: 100%;
   text-align: left;
-  background-color: var(--dark);
+  background-color: var(--darkest);
   color: var(--light);
   border: 1px solid var(--tertiary);
   border-radius: .25rem;
@@ -285,7 +285,7 @@ input:focus {
 }
 
 .list-group-item {
-  background-color: var(--darkest);
+  background-color: var(--dark);
   color: var(--light);
   font-size: .9rem;
   border: 1px solid var(--tertiary);
