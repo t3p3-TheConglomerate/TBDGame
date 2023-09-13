@@ -6,6 +6,7 @@ import NoteList from "../components/NoteList";
 import CreateGroup from "../components/CreateGroup";
 import GroupList from "../components/GroupList";
 import GroupCard from "../components/GroupCard";
+import Note from "../components/Note";
 
 import { QUERY_GROUP } from "../utils/queries";
 
@@ -18,6 +19,7 @@ const Home = () => {
       <div className="flex-row justify-center">
         
           <GroupCard />
+          <Note />
           <NoteForm />
           <CreateGroup />
         </div>
