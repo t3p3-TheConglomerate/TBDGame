@@ -55,7 +55,7 @@ const CreateGroup = () => {
   };
 
   return (
-    <div>
+    <div className="my-2">
       <button onClick={openModal}>Create Group</button>
       <Modal
         isOpen={modalIsOpen}

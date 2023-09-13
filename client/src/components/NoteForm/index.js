@@ -38,8 +38,8 @@ const NoteForm = () => {
   };
 
   return (
-    <div className="noteform p-4">
-      <h3>Add a Note</h3>
+    <div className="noteform p-4 my-2">
+      {/* <h3>Add a Note</h3>
 
       <p
         className={`m-0 ${
@@ -48,7 +48,7 @@ const NoteForm = () => {
       >
         Character Count: {characterCount}/280
         {error && <span className="ml-2">Something went wrong...</span>}
-      </p>
+      </p> */}
       <form onSubmit={handleFormSubmit}>
         <div className="my-2">
           <select
@@ -67,7 +67,7 @@ const NoteForm = () => {
         <div className="my-2">
           <textarea
             name="NoteText"
-            placeholder="Create your note here"
+            placeholder="Write a note..."
             // value={formState.noteText}
             className="w-100 form-control"
             onChange={handleChange}

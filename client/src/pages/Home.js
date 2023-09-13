@@ -15,12 +15,19 @@ const Home = () => {
   const notes = data?.notes || [];
 
   return (
-    <main className="container my-4">
+    <main className="container my-1">
       <div className="flex-row justify-center">
         
+          {/* GroupCard displays on the Home page for each Group that the User has joined */}
           <GroupCard />
+
+          {/* Note appears on the Group page and contains a single note */}
           <Note />
+
+          {/* NoteForm appears on the Group page and is used to add notes */}
           <NoteForm />
+
+          {/* CreateGroup is a button that triggers a modal and it appears on the Home page. It is used to create a group. */}
           <CreateGroup />
         </div>
         {/* <div className="col-12 col-md-8 mb-3">

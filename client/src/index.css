@@ -4,6 +4,7 @@
   --tertiary: #4f1602;
   --light: #fff4de;
   --dark: #2d0d00;
+  --darker: #1d0800;
   --darkest: #110400;
   --error: rgb(228, 46, 1);
   --spacing-one: calc(1rem * 0.5);
@@ -102,7 +103,7 @@ header a:hover {
 }
 
 button {
-  font-size: 1rem;
+  font-size: .9rem;
   font-weight: bold;
   letter-spacing: .1rem;
   color: var(--dark);
@@ -137,6 +138,20 @@ span[role="img"] {
 
 form {
   width: 100%;
+}
+
+.form-select {
+  font-size: .9rem;
+}
+
+.form-control {
+  font-size: .9rem;
+}
+
+.form-label {
+  font-size: .9rem;
+  margin-bottom: .2rem;
+  margin-top: .5rem;
 }
 
 input {
@@ -222,11 +237,22 @@ input:focus {
 }
 
 .noteform {
-  width: 100%;
+  width: 57%;
   text-align: left;
   background-color: var(--dark);
   color: var(--light);
   border: 1px solid var(--tertiary);
+  border-radius: .25rem;
+}
+
+.note {
+  width: 65%;
+  text-align: left;
+  background-color: var(--dark);
+  color: var(--light);
+  border: 1px solid var(--tertiary);
+  margin-left: 1rem;
+  border-radius: .25rem;
 }
 
 .groupcard {
@@ -243,6 +269,7 @@ input:focus {
   background-color: var(--dark);
   color: var(--light);
   border: 1px solid var(--tertiary);
+  border-radius: .25rem;
 }
 
 .error-text {
@@ -257,8 +284,39 @@ input:focus {
   border-radius: 0.25rem;
 }
 
+.list-group-item {
+  background-color: var(--darkest);
+  color: var(--light);
+  font-size: .9rem;
+  border: 1px solid var(--tertiary);
+
+}
+
+.list-group-item:hover {
+  background-color: var(--darkest);
+}
+
+.logo {
+  width: 100%;
+  text-align: center;
+}
+
 @media screen and (max-width: 768px) {
+  .logo {
+    width: 100%;
+    text-align: center;
+  }
+
   .card {
     width: 100%;
+  }
+
+  .noteform {
+    width: 100%;
+  }
+
+  .note {
+    width: 100%;
+    margin: 0;
   }
 }
