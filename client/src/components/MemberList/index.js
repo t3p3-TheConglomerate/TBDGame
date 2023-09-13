@@ -1,4 +1,6 @@
 import React from "react";
+import { useQuery } from "@apollo/client";
+import { useParams } from "react-router-dom";
 import { QUERY_SINGLE_GROUP } from "../../utils/queries";
 
 const MemberList = () => {
@@ -7,17 +9,18 @@ const MemberList = () => {
     variables: { id: groupId },
   });
   const group = data?.group || {};
+  console.log("memberlist", group.groupMembers);
 
   return (
     <div>
-      <h3>Group Members</h3>
-      {group.groupMembers.map((groupMembers) => (
-          <div key={groupMembers} className="card mb-3">
+      {/* <h3>Group Members</h3>
+      {group.groupMembers.map((member) => (
+          <div key={member.id} className="card mb-3">
             <div className="card-body bg-light p-2">
-              <p>{groupMembers}</p>
+              <p>{member.username}</p>
             </div>
           </div>
-        ))}
+        ))} */}
     </div>
   );
 };

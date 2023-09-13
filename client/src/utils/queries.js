@@ -38,7 +38,6 @@ export const QUERY_SINGLE_GROUP = gql`
     groupOwner
     groupMembers {
       _id
-      username
     }
     notes {
       _id
