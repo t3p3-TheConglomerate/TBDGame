@@ -56,7 +56,7 @@ const CreateGroup = () => {
 
   return (
     <div>
-      <button onClick={openModal}>Open Modal</button>
+      <button onClick={openModal}>Create Group</button>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}

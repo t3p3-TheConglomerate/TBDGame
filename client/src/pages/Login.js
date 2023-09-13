@@ -63,7 +63,7 @@ function Login(props) {
           <button className="button mb-4" type="submit">Submit</button>
 
       </form>
-      <Link to="/signup">Go to Signup</Link>
+      <Link to="/signup">Signup first</Link>
       </div>
     </div>
   );

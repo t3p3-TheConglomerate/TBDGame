@@ -38,7 +38,7 @@ const NoteForm = () => {
   };
 
   return (
-    <div className="card p-4">
+    <div className="noteform p-4">
       <h3>Add a Note</h3>
 
       <p
@@ -51,7 +51,6 @@ const NoteForm = () => {
       </p>
       <form onSubmit={handleFormSubmit}>
         <div className="my-2">
-        <label className="form-label" htmlFor="category">Category</label>
           <select
             className="form-select"
             name="noteCategory"
@@ -66,7 +65,6 @@ const NoteForm = () => {
         </div>
 
         <div className="my-2">
-          <label className="form-label" htmlFor="note">Note</label>
           <textarea
             name="NoteText"
             placeholder="Create your note here"
