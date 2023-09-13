@@ -83,7 +83,7 @@ const NoteForm = () => {
             className="form-input"
             name="category"
             value={formState.category}
-            // onChange={}
+            // onChange={handleChange}
           >
             <option value="">Choose the Notes category</option>
             <option value="music">music</option>

@@ -7,50 +7,16 @@ import { QUERY_GROUP } from "../../utils/queries";
 import { GET_ME } from "../../utils/queries";
 import { Link } from "react-router-dom";
 
+// query group then match id with url id and get name
+
+
 function GroupList() {
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || data?.user || {};
   console.log(data);
-  // if (loading) {
-  //   return <h2>LOADING...</h2>;
-  // }
-  // if (error) {
-  //   return <h2>`Error: ${error.message}`</h2>;
-  // }
-  // useEffect(() => {
-  //   if (data) {
-  //     dispatch({
-  //       type: UPDATE_PRODUCTS,
-  //       products: data.products,
-  //     });
-  //     data.products.forEach((product) => {
-  //       idbPromise('products', 'put', product);
-  //     });
-  //   } else if (!loading) {
-  //     idbPromise('products', 'get').then((products) => {
-  //       dispatch({
-  //         type: UPDATE_PRODUCTS,
-  //         products: products,
-  //       });
-  //     });
-  //   }
-  // }, [data, loading, dispatch]);
 
   return (
     <>
-      {/* <div className="text-light bg-dark p-5"> */}
-      {/* <Container>
-          <h1>Viewing saved books!</h1>
-        </Container>
-      </div>
-      <Container>
-        <h2 className="pt-5">
-          {userData.savedBooks.length
-            ? `Viewing ${userData.savedBooks.length} saved ${
-                userData.savedBooks.length === 1 ? "book" : "books"
-              }:`
-            : "You have no saved books!"}
-        </h2> */}
       <div className="Row">
         {userData &&
           userData.groups &&
@@ -65,13 +31,12 @@ function GroupList() {
                       variant="top"
                     />
                   ) : null}
-                  <Card.Body>
+                  <Card.Body key={group.groupId}>
                     <Card.Title>{group.groupName}</Card.Title>
                     <p className="small">Group: {group.groupName}</p>
                     <Card.Text>{group.gameDescription}</Card.Text>
                     <Button
                       className="btn-block btn-danger"
-                      // onClick={() => handleDeleteBook(group._id)}
                     >
                       <Link to={`/group/${group._id}`}>View Group</Link>
                     </Button>
@@ -81,7 +46,6 @@ function GroupList() {
             );
           })}
       </div>
-      {/* </Container> */}
     </>
   );
 }

@@ -43,7 +43,7 @@ const typeDefs = gql`
 
   type Query {
     groups: [Group]
-    group(groupName: String): Group
+    group(_id: ID): Group
     user(_id: ID!): User
     me: User
   }

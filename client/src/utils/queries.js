@@ -27,53 +27,30 @@ export const QUERY_GROUP = gql`
   }
 `;
 
-export const QUERY_PRODUCTS = gql`
-  query getProducts($category: ID) {
-    products(category: $category) {
+export const QUERY_SINGLE_GROUP = gql`
+  query singleGroup($id: ID!) {
+    group(_id: $id) {
+    _id
+    groupName
+    gameName
+    gameDescription
+    gameImage
+    groupOwner
+    groupMembers {
       _id
-      name
-      description
-      price
-      quantity
-      image
-      category {
-        _id
-      }
+      username
+    }
+    notes {
+      _id
+      noteText
+      noteAuthor
+      category
+      createdAt
     }
   }
+}
 `;
 
-export const QUERY_CHECKOUT = gql`
-  query getCheckout($products: [ID]!) {
-    checkout(products: $products) {
-      session
-    }
-  }
-`;
-
-export const QUERY_ALL_PRODUCTS = gql`
-  {
-    products {
-      _id
-      name
-      description
-      price
-      quantity
-      category {
-        name
-      }
-    }
-  }
-`;
-
-export const QUERY_CATEGORIES = gql`
-  {
-    categories {
-      _id
-      name
-    }
-  }
-`;
 
 export const GET_ME = gql`
   query me {
