@@ -57,8 +57,6 @@ function Nav() {
 
           <span role="img" aria-label="clinking mugs">🍻</span>
 
-         Ullr's Tavern
-
         </Link>
       </h1>
 

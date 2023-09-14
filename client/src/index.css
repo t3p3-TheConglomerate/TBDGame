@@ -81,9 +81,7 @@ a {
 }
 
 a:hover {
-  text-decoration: none;
-  color: var(--primary)
-}
+  text-decoration: none;}
 
 header {
   background: var(--darkest);
@@ -277,7 +275,12 @@ input:focus {
 }
 
 .enterbutton {
-  background-color: var(--bs-light);
+  background-color: var(--darker);
+  color: var(--light);
+}
+
+.enterbutton:hover {
+  background-color: var(--light);
   color: var(--darkest);
 }
 

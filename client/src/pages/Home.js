@@ -18,24 +18,27 @@ const Home = () => {
   return (
     <main className="container my-1">
       <div className="flex-row justify-center pb-3">
-        <div className="col-9">
+        <div className="col-7 col-sm-8 col-md-9">
           <h1>My Groups</h1>
         </div>
-        <div className="col-3">
+        <div className="col-5 col-sm-4 col-md-3">
           {/* CreateGroup is a button that triggers a modal and it appears on the Home page. It is used to create a group. */}
           <CreateGroup />
         </div>
       </div>
-      <div class="row gx-4">
+      <div class="row gx-4 gy-2">
 
         {/* GroupCard displays on the Home page for each Group that the User has joined */}
-        <div className="col-4">
+        <div className="col-12 col-lg-4 col-md-4 col-sm-6">
           <GroupCard />
         </div>
-        <div className="col-4">
+        <div className="col-12 col-lg-4 col-md-4 col-sm-6">
           <GroupCard />
         </div>
-        <div className="col-4">
+        <div className="col-12 col-lg-4 col-md-4 col-sm-6">
+          <GroupCard />
+        </div>
+        <div className="col-12 col-lg-4 col-md-4 col-sm-6">
           <GroupCard />
         </div>
 
