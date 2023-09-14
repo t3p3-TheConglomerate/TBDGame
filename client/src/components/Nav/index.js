@@ -1,6 +1,7 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+// import logo from './ut-logo.png'
 
 function Nav() {
 
@@ -45,17 +46,20 @@ function Nav() {
   }
 
   return (
-    <header className="flex-row px-1 container">
-      <h1 className="logo">
-        <Link to="/">
-          <span role="img" aria-label="clinking mugs">🍻</span>
-        </Link>
-      </h1>
+    <>
+      <header className="flex-row px-1 container">
+        <h1 className="logo">
+          <Link to="/">
+            <img src="./ut-logo.png" className="logo" alt="logo" />
+            {/* <span role="img" aria-label="clinking mugs">🍻</span> */}
+          </Link>
+        </h1>
 
-      <nav>
-        {showNavigation()}
-      </nav>
-    </header>
+        <nav>
+          {showNavigation()}
+        </nav>
+      </header>
+    </>
   );
 }
 

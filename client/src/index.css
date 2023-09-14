@@ -91,7 +91,6 @@ header {
 
 header h1 {
   font-size: 6rem;
-  display: block;
 }
 
 header a {
@@ -297,13 +296,12 @@ input:focus {
 }
 
 .logo {
-  width: 100%;
-  text-align: center;
+  width: 100px;
 }
 
 @media screen and (max-width: 768px) {
   .logo {
-    width: 100%;
+    width: 100px;
     text-align: center;
   }
 
