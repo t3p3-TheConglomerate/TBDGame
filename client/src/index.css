@@ -254,6 +254,16 @@ input:focus {
   border-radius: .25rem;
 }
 
+.joingroup {
+  width: 65%;
+  text-align: left;
+  background-color: var(--dark);
+  color: var(--light);
+  border: 1px solid var(--tertiary);
+  margin-left: 1rem;
+  border-radius: .25rem;
+}
+
 .groupcard {
   width: 33%;
   text-align: left;

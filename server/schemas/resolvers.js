@@ -23,17 +23,6 @@ const resolvers = {
     users: async () => {
       return await User.find();
     },
-    // user: async (parent, args, context) => {
-    //   if (context.user) {
-    //     const user = await User.findById(context.user._id).populate(
-    //       "group.groupMembers"
-    //     );
-
-    //     return user;
-    //   }
-
-    //   throw new AuthenticationError("Not logged in");
-    // },
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
@@ -77,7 +66,7 @@ const resolvers = {
         );
       }
       throw new AuthenticationError("You need to be logged in!");
-      return newGroup;
+      // return newGroup;
     },
     updateGroup: async (
       parent,
@@ -189,27 +178,28 @@ const resolvers = {
         // const user = User.findById(_id);
         // console.log("hello", user);
 
-      const group = Group.findById(groupId);
-      console.log("this", group);
-
-      // await User.findOneAndUpdate(
-      //   { _id: _id },
-      //   {
-      //     $addToSet: { groups: groupId },
-      //   },
-      //   {
-      //     new: true,
-      //     runValidators: true,
-      //   }
-      // );
-
-      return await Group.findByIdAndUpdate(
+      // const group = Group.findById(groupId);
+      const group = await Group.findByIdAndUpdate(
         { _id: groupId }, 
-        { $push: { groupMembers: _id } },
+        { $addToSet: { groupMembers: context.user._id } },
         {
           new: true,
         }
       );
+      console.log("this", group);
+
+      return await User.findOneAndUpdate(
+        { _id: _id },
+        {
+          $addToSet: { groups: group },
+        },
+        {
+          new: true,
+          runValidators: true,
+        }
+      );
+
+      
 
       // }
 
