@@ -10,8 +10,8 @@ function Nav() {
       return (
         <ul className="flex-row">
           <li className="mx-1">
-            <Link to="/orderHistory">
-              Order History
+            <Link to="/test">
+              Test
             </Link>
           </li>
           <li className="mx-1">
@@ -36,8 +36,13 @@ function Nav() {
             </Link>
           </li>
           <li className="mx-1">
-            <Link to="/Test">
+            <Link to="/test">
               Test
+            </Link>
+          </li>
+          <li className="mx-1">
+            <Link to="/group">
+              Group Page
             </Link>
           </li>
         </ul>

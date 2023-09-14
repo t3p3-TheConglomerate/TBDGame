@@ -17,32 +17,36 @@ const Home = () => {
 
   return (
     <main className="container my-1">
-      <div className="flex-row justify-center">
-        
-          {/* GroupCard displays on the Home page for each Group that the User has joined */}
-          <GroupCard />
-
-          {/* Note appears on the Group page and contains a single note */}
-          <Note />
-
-          {/* NoteForm appears on the Group page and is used to add notes */}
-          <NoteForm />
-
+      <div className="flex-row justify-center pb-3">
+        <div className="col-9">
+          <h1>My Groups</h1>
+        </div>
+        <div className="col-3">
           {/* CreateGroup is a button that triggers a modal and it appears on the Home page. It is used to create a group. */}
           <CreateGroup />
         </div>
-        {/* <div className="col-12 col-md-8 mb-3">
+      </div>
+      <div class="row gx-4">
+
+        {/* GroupCard displays on the Home page for each Group that the User has joined */}
+        <div className="col-4">
+          <GroupCard />
+        </div>
+        <div className="col-4">
+          <GroupCard />
+        </div>
+        <div className="col-4">
+          <GroupCard />
+        </div>
+
+      </div>
+      {/* <div className="col-12 col-md-8 mb-3">
           {loading ? (
             <div>Loading...</div>
           ) : (
             <NoteList notes={notes} title="Some Feed for Thought(s)..." />
           )}
         </div> */}
-
-      <div>
-        <CreateGroup />
-        <GroupList />
-      </div>
     </main>
   );
 };

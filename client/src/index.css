@@ -237,21 +237,22 @@ input:focus {
 }
 
 .noteform {
-  width: 57%;
+  width: 100%;
   text-align: left;
   background-color: var(--dark);
   color: var(--light);
   border: 1px solid var(--tertiary);
+  margin: 1rem 0 0 1rem;
   border-radius: .25rem;
 }
 
 .note {
-  width: 65%;
+  width: 100%;
   text-align: left;
   background-color: var(--dark);
   color: var(--light);
   border: 1px solid var(--tertiary);
-  margin-left: 1rem;
+  margin: 0 0 1rem 1rem;
   border-radius: .25rem;
 }
 
@@ -266,11 +267,18 @@ input:focus {
 }
 
 .groupcard {
-  width: 33%;
+  width: 100%;
   text-align: left;
   background-color: var(--dark);
   color: var(--light);
   border: 1px solid var(--tertiary);
+  margin: 0 1rem 1rem 0;
+  border-radius: .25rem;
+}
+
+.enterbutton {
+  background-color: var(--bs-light);
+  color: var(--darkest);
 }
 
 .gamecard {

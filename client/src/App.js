@@ -14,7 +14,8 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Nav from './components/Nav';
-import Test from './pages/ApiTest';
+import ApiTest from './pages/ApiTest';
+import Group from './pages/Group';
 // import { StoreProvider } from './utils/GlobalState';
 // import Success from './pages/Success';
 // import OrderHistory from './pages/OrderHistory';
@@ -59,8 +60,12 @@ function App() {
                 element={<Signup />} 
               />
               <Route
+                path="/group"
+                element={<Group />}
+              />
+              <Route
                 path="/group/:groupId"
-                element={<Test />}
+                element={<ApiTest />}
               />
               {/* <Route 
                 path="/success" 
