@@ -19,7 +19,7 @@ const Home = () => {
     <main className="container my-1">
       <div className="flex-row justify-center pb-3">
         <div className="col-7 col-sm-8 col-md-9">
-          <h4 className="mt-3">Welcome back, Rich.</h4>
+          <h4 className="mt-3">Welcome back.</h4>
         </div>
         <div className="col-5 col-sm-4 col-md-3">
           {/* CreateGroup is a button that triggers a modal and it appears on the Home page. It is used to create a group. */}

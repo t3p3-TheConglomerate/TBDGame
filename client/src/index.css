@@ -324,25 +324,22 @@ input:focus {
 .logo {
   width: 100px;
   margin: 0 auto;
-  padding: 1rem 0;
+  padding: 1rem 0 .5rem 0;
 }
 
 @media screen and (max-width: 768px) {
-  .logo {
-    width: 100%;
-    text-align: center;
-  }
-
   .card {
     width: 100%;
   }
 
   .noteform {
     width: 100%;
+    margin-left: 0;
   }
 
   .note {
     width: 100%;
-    margin: 0;
+    margin-bottom: 1rem;
+    margin-left: 0;
   }
 }
