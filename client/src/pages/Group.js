@@ -41,11 +41,6 @@ const Home = () => {
             <NoteList notes={notes} title="Some Feed for Thought(s)..." />
           )}
         </div> */}
-
-      <div>
-        <CreateGroup />
-        <GroupList />
-        </div>
       </div>
     </main>
   );

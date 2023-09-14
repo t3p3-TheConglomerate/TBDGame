@@ -226,6 +226,10 @@ input:focus {
   padding-bottom: var(--spacing-two);
 }
 
+.nav {
+  padding-bottom: 1rem;
+}
+
 .card {
   width: 33%;
   text-align: left;
@@ -319,6 +323,8 @@ input:focus {
 
 .logo {
   width: 100px;
+  margin: 0 auto;
+  padding: 1rem 0;
 }
 
 @media screen and (max-width: 768px) {

@@ -24,8 +24,8 @@ function Nav() {
       );
     } else {
       return (
-        <ul className="flex-row">
-          <li className="mx-1 ">
+        <ul className="flex-row nav">
+          <li>
             <Link to="/signup">
               Signup
             </Link>
@@ -52,17 +52,18 @@ function Nav() {
 
   return (
     <header className="flex-row px-1 container">
-      <h1 className="logo">
+      <div className="col-12 logo">
         <Link to="/">
 
         <img src="./ut-logo.png" className="logo" alt="logo" />
 
         </Link>
-      </h1>
-
-      <nav>
+        </div>
+        <div className="col-12">
+        <nav>
         {showNavigation()}
       </nav>
+          </div>
     </header>
   );
 }
