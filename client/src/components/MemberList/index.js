@@ -10,16 +10,15 @@ const MemberList = () => {
     variables: { id: groupId },
   });
   const group = data?.group || {};
-  console.log(group.groupMembers);
-  // group.groupMembers.map((member) => console.log(member._id));
-  
+ 
+  console.log(group?.groupMembers?.map((member) => console.log(member._id)))
+
   return (
     <div>
       <h3>Group Members</h3>
-        {/* {group.groupMembers.map((member) => ( */}
-          {/* <MemberName memberId={member}/> */}
-        {/* ))} */}
-        <MemberName memberId={group}/>
+        {group?.groupMembers?.map((member) => (
+          <MemberName memberId={member} key={member._id}/>
+        ))}
     </div>
   );
 };
