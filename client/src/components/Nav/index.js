@@ -2,6 +2,7 @@ import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
 // import logo from './ut-logo.png'
+import "./index.css";
 
 function Nav() {
 
@@ -46,6 +47,7 @@ function Nav() {
   }
 
   return (
+
     <>
       <header className="flex-row px-1 container">
         <h1 className="logo">

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
-const noteSchema = require("./Note");
+const Note = require("./Note");
 
 const groupSchema = new Schema(
   {
@@ -28,7 +28,7 @@ const groupSchema = new Schema(
         ref: "User",
       },
     ],
-    notes: [noteSchema],
+    notes: [Note.schema],
   },
   {
     toJSON: {
