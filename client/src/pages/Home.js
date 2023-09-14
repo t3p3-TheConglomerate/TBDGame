@@ -7,6 +7,7 @@ import CreateGroup from "../components/CreateGroup";
 import GroupList from "../components/GroupList";
 import GroupCard from "../components/GroupCard";
 import Note from "../components/Note";
+import JoinGroup from "../components/JoinGroup";
 
 import { QUERY_GROUP } from "../utils/queries";
 
@@ -38,10 +39,10 @@ const Home = () => {
           )}
         </div> */}
 
-      {/* <div>
+      <div>
         <CreateGroup />
         <GroupList />
-      </div> */}
+      </div>
     </main>
   );
 };

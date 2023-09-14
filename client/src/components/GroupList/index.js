@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useQuery } from "@apollo/client";
 import { Container, Card, Button, Row, Col } from "react-bootstrap";
-import { idbPromise } from "../../utils/helpers";
+
 import spinner from "../../assets/spinner.gif";
 import { QUERY_GROUP } from "../../utils/queries";
 import { GET_ME } from "../../utils/queries";

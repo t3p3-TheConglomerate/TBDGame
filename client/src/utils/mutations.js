@@ -164,3 +164,14 @@ export const CHANGE_OWNER = gql`
     }
   }
 `;
+
+export const ADD_MEMBER = gql`  
+mutation addMember($_id: ID!, $groupId: ID!) {
+    addMember(_id: $_id, groupId: $groupId) {
+      _id
+      groups {
+        _id
+      }
+    }
+  }
+`;                                                                                                                          

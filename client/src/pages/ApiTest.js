@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useQuery } from "@apollo/client";
+import { useQuery, useLazyQuery  } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import GameComponent from "../components/GameSearch";
 import "./ApiTest.css";
 import MemberList from "../components/MemberList";
 import NoteForm from "../components/NoteForm";
-import { QUERY_SINGLE_GROUP } from "../utils/queries";
+import { QUERY_SINGLE_GROUP, GET_ME } from "../utils/queries";
+import JoinGroup from "../components/JoinGroup";
  
 
 
@@ -14,15 +15,24 @@ import { QUERY_SINGLE_GROUP } from "../utils/queries";
 function ApiTest() {
   const { groupId } = useParams();
   const { loading, data } = useQuery(QUERY_SINGLE_GROUP, {
-    variables: { _id: groupId },
+    variables: { id: groupId },
   });
   const group = data?.group || {};
+
+const {loading: meLoading, data: meData}  = useQuery(GET_ME);
+
+
+
+
+  console.log('data', data, loading);
+  console.log('groupmembers:', group?.groupMembers , meData?.me._id);
+  // group.groupMembers.find(context.user._id)
   
-  console.log(data);
-  console.log(group.notes);
-  
-  if (loading) {
-    return <div>Loading...</div>;
+  if (!group?.groupMembers?.some(member => meData?.me?._id === member._id)) {
+    return (<div>
+      <JoinGroup groupId={group._id} userId={meData?.me?._id}/>
+
+    </div>);
   }
   return (
     <div className="card">
