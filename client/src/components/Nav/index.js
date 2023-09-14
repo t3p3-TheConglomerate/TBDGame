@@ -1,6 +1,7 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import "./index.css";
 
 function Nav() {
 
@@ -48,7 +49,11 @@ function Nav() {
     <header className="flex-row px-1 container">
       <h1 className="logo">
         <Link to="/">
+
           <span role="img" aria-label="clinking mugs">🍻</span>
+
+         Ullr's Tavern
+
         </Link>
       </h1>
 

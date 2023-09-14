@@ -1,6 +1,8 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 
-const Group = () => {};
+const Group = () => {
+    
+};
 
 export default Group;

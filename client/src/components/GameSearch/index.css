@@ -1,12 +1,13 @@
-li {
+li.gameList {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
 }
 
-li:hover {
-    background-color: #d93030;
+li.gameList:hover {
+    background-color: black;
+    color: white;
 }
 
 form {
@@ -24,14 +25,10 @@ form {
 }
 
 .gameList.highlighted {
-    background-color: #d93030;
+    background-color: black;
+    color: white;
 }
 
 .selectedGame {
     display: inline-block;
-}
-
-ul {
-    border: 0;
-    padding-left: 1rem;
 }

@@ -1,6 +1,7 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { User, Group, Note } = require("../models");
 const { signToken } = require("../utils/auth");
+const { findById } = require("../models/Note");
 
 const resolvers = {
   Query: {
@@ -18,6 +19,9 @@ const resolvers = {
     },
     user: async (parent, { _id }) => {
       return await User.findById(_id);
+    },
+    users: async () => {
+      return await User.find();
     },
     // user: async (parent, args, context) => {
     //   if (context.user) {
@@ -77,7 +81,7 @@ const resolvers = {
     },
     updateGroup: async (
       parent,
-      { _id, groupName, gameName, gameDescription, gameImage },
+      { _id, groupName, gameName, gameDescription, gameImage, groupOwner},
       context
     ) => {
       console.log(context);
@@ -87,6 +91,7 @@ const resolvers = {
           gameName: gameName,
           gameDescription: gameDescription,
           gameImage: gameImage,
+          groupOwner: groupOwner,
         });
       }
 
@@ -120,16 +125,20 @@ const resolvers = {
       }
       throw new AuthenticationError("Only the group owner can change this");
     },
-    addNote: async (parent, { noteText, category }, context) => {
+    addNote: async (parent, { groupId, noteText, noteAuthor, category }, context) => {
       if (context.user) {
+        console.log('Step 1');
         const noteToAdd = await Note.create({
           noteText: noteText,
           noteAuthor: context.user.username,
+          // noteAuthor: noteAuthor,
           category: category,
         });
-        return await Group.findOneAndUpdate(
+        console.log("addNote",noteToAdd)
+      
+        await Group.findOneAndUpdate(
           {
-            _id: context.group._id,
+            _id: groupId, //_id: context.group._id
           },
           {
             $addToSet: { notes: noteToAdd },
@@ -138,6 +147,7 @@ const resolvers = {
             new: true,
           }
         );
+        return noteToAdd;
       }
     },
     deleteNote: async (parent, { _id }, context) => {
@@ -173,6 +183,38 @@ const resolvers = {
 
       return { token, user };
     },
+    addMember: async (parent, { _id, groupId }, context) => {
+      // console.log(context);
+      // if (context.user) {
+        // const user = User.findById(_id);
+        // console.log("hello", user);
+
+      const group = Group.findById(groupId);
+      console.log("this", group);
+
+      // await User.findOneAndUpdate(
+      //   { _id: _id },
+      //   {
+      //     $addToSet: { groups: groupId },
+      //   },
+      //   {
+      //     new: true,
+      //     runValidators: true,
+      //   }
+      // );
+
+      return await Group.findByIdAndUpdate(
+        { _id: groupId }, 
+        { $push: { groupMembers: _id } },
+        {
+          new: true,
+        }
+      );
+
+      // }
+
+      // throw new AuthenticationError('Not logged in');
+    }
   },
 };
 

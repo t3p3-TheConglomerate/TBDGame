@@ -1,10 +1,11 @@
 const { Schema, model } = require('mongoose');
+const mongoose = require("mongoose");
 const dateFormat = require('../utils/dateFormat');
 
 const noteSchema = new Schema({
   noteText: {
     type: String,
-    required: 'You need to leave a note!',
+    required: true,
     minlength: 1,
     maxlength: 280,
     trim: true,
@@ -26,13 +27,11 @@ const noteSchema = new Schema({
     {
       commentText: {
         type: String,
-        required: true,
         minlength: 1,
         maxlength: 280,
       },
       commentAuthor: {
         type: String,
-        required: true,
         trim: true,
       },
       createdAt: {
@@ -44,6 +43,6 @@ const noteSchema = new Schema({
   ],
 });
 
-// const Note = model('Note', noteSchema);
+const Note = mongoose.model('Note', noteSchema);
 
-module.exports = noteSchema;
+module.exports = Note;
