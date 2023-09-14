@@ -318,8 +318,7 @@ input:focus {
 }
 
 .logo {
-  width: 100%;
-  text-align: center;
+  width: 100px;
 }
 
 @media screen and (max-width: 768px) {

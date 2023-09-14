@@ -55,7 +55,7 @@ function Nav() {
       <h1 className="logo">
         <Link to="/">
 
-          <span role="img" aria-label="clinking mugs">🍻</span>
+        <img src="./ut-logo.png" className="logo" alt="logo" />
 
         </Link>
       </h1>
