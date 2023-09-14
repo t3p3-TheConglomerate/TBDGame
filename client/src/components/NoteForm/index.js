@@ -63,8 +63,8 @@ const NoteForm = () => {
   // };
 
   return (
-    <div>
-      <h3>Add your Note to the Tavern Board</h3>
+    <div className="noteform p-4 my-2">
+      {/* <h3>Add a Note</h3>
 
       <p
         className={`m-0 ${
@@ -73,45 +73,43 @@ const NoteForm = () => {
       >
         Character Count: {characterCount}/280
         {error && <span className="ml-2">Something went wrong...</span>}
-      </p>
-      <form
-        className="flex-row justify-center justify-space-between-md align-center"
-        onSubmit={handleFormSubmit}
-      >
-        <div className="col-12 col-lg-9">
+      </p> */}
+      <form onSubmit={handleFormSubmit}>
+        <div className="my-2">
           <select
-            className="form-input"
+
+            className="form-select"
             name="category"
             value={formState.category}
-            // onChange={handleChange}
+//             onChange={handleChange}
           >
-            <option value="">Choose the Notes category</option>
-            <option value="music">music</option>
-            <option value="art">art</option>
-            <option value="gameplay">gameplay</option>
-            <option value="narrative">narrative</option>
-            <option value="graphics">graphics</option>
-            <option value="misc">misc</option>
+            <option value="">Choose a category</option>
+            <option value="music">Music</option>
+            <option value="art">Art</option>
+            <option value="gameplay">Gameplay</option>
+
           </select>
         </div>
 
-        <div className="col-12">
+        <div className="my-2">
           <textarea
             name="NoteText"
-            placeholder="Create your note here"
+            placeholder="Write a note..."
             // value={formState.noteText}
-            className="form-input w-100"
-            // onChange={}
+
+            className="w-100 form-control"
+//             onChange={handleChange}
+
           ></textarea>
         </div>
 
-        <div className="col-12 col-lg-3">
-          <button className="btn btn-primary btn-block py-3" type="submit">
+
+          <button className="button" type="submit">
             Post Note
           </button>
-        </div>
+
         {error && (
-          <div className="col-12 my-3 bg-danger text-white p-3">
+          <div className="alert alert-danger d-flex align-items-center" role="alert">
             Something went wrong...
           </div>
         )}

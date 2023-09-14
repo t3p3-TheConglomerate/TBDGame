@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import Modal from "react-modal";
 import { useMutation } from "@apollo/client";
 import { ADD_GROUP } from "../../utils/mutations";
+import { ModalHeader } from "react-bootstrap";
 
 const customStyles = {
   content: {
@@ -10,7 +11,8 @@ const customStyles = {
     left: "50%",
     right: "auto",
     bottom: "auto",
-    marginRight: "-50%",
+    margin: "0 auto",
+    width: "90%",
     transform: "translate(-50%, -50%)",
   },
 };
@@ -53,8 +55,8 @@ const CreateGroup = () => {
   };
 
   return (
-    <div>
-      <button onClick={openModal}>Open Modal</button>
+    <div className="my-2">
+      <button onClick={openModal}>Create Group</button>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -62,13 +64,15 @@ const CreateGroup = () => {
         style={customStyles}
         contentLabel="Example Modal"
       >
+
         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Create a group</h2>
         <button onClick={closeModal}>close</button>
-        <div>Group name</div>
+
         <form onSubmit={handleFormSubmit}>
-          <input name="GroupName" onChange={(e) => setFormState(e.target.value)}/>
-          <button>AUTOCOMPLETE SEARCH</button>
-          <button>Create group button</button>
+          <label className="form-label" htmlFor="category">Group Name</label>
+          <input className="form-control" name="GroupName" onChange={(e) => setFormState(e.target.value)}/>
+          <button className="bg-secondary">SEARCH</button>
+          <button>Create</button>
         </form>
       </Modal>
     </div>

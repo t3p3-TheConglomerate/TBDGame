@@ -1,9 +1,11 @@
 :root {
-  --primary: #232F3E;
-  --secondary: #F3A847;
-  --tertiary: #B12704;
-  --light: #fafafa;
-  --dark: #272f32;
+  --primary: #0d6efd;
+  --secondary: #f2b558;
+  --tertiary: #4f1602;
+  --light: #fff4de;
+  --dark: #2d0d00;
+  --darker: #1d0800;
+  --darkest: #110400;
   --error: rgb(228, 46, 1);
   --spacing-one: calc(1rem * 0.5);
   --spacing-two: calc(1rem);
@@ -21,11 +23,12 @@ body {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Karla', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
   line-height: 1.5;
   font-size: 16px;
-  color: var(--dark);
+  color: var(--light);
+  background-color: var(--darkest);
 }
 
 h1,
@@ -34,10 +37,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Roboto Slab', serif;
   font-weight: 500;
   margin: 5px 0;
   line-height: 1.25;
+  color: var(--light);
 }
 
 h1 {
@@ -65,42 +69,58 @@ h6 {
 }
 
 p {
-  font-size: 1.1rem;
+  font-size: .9rem;
   margin-top: 0;
 }
 
 a {
-  color: var(--tertiary);
+  color: var(--light);
   text-decoration: none;
   font-weight: bold;
+  color: var(--secondary);
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
+  color: var(--primary)
 }
 
 header {
-  background: var(--primary);
+  background: var(--darkest);
+}
+
+header h1 {
+  font-size: 6rem;
+  display: block;
 }
 
 header a {
   color: var(--light);
 }
 
-button {
-  font-size: 1rem;
+header a:hover {
   text-decoration: none;
-  padding: 0.25rem 1rem;
-  border-radius: .5rem;
+}
+
+button {
+  font-size: .9rem;
+  font-weight: bold;
+  letter-spacing: .1rem;
+  color: var(--dark);
+  text-decoration: none;
+  padding: .5rem .75rem;
+  border-radius: .25rem;
   border: none;
   outline: none;
   cursor: pointer;
   margin: 0 1px;
-  background-color: var(--secondary);
+  background-color: var(--primary);
+  text-transform: uppercase;
+  width: 100%;
 }
 
 button:hover {
-  opacity: .8;
+  opacity: .9;
 }
 
 button[disabled] {
@@ -117,7 +137,21 @@ span[role="img"] {
 }
 
 form {
-  width: 40%;
+  width: 100%;
+}
+
+.form-select {
+  font-size: .9rem;
+}
+
+.form-control {
+  font-size: .9rem;
+}
+
+.form-label {
+  font-size: .9rem;
+  margin-bottom: .2rem;
+  margin-top: .5rem;
 }
 
 input {
@@ -195,16 +229,94 @@ input:focus {
 }
 
 .card {
-  width: 25%;
-  text-align: center;
+  width: 33%;
+  text-align: left;
+  background-color: var(--dark);
+  color: var(--light);
+  border: 1px solid var(--tertiary);
+}
+
+.noteform {
+  width: 57%;
+  text-align: left;
+  background-color: var(--dark);
+  color: var(--light);
+  border: 1px solid var(--tertiary);
+  border-radius: .25rem;
+}
+
+.note {
+  width: 65%;
+  text-align: left;
+  background-color: var(--dark);
+  color: var(--light);
+  border: 1px solid var(--tertiary);
+  margin-left: 1rem;
+  border-radius: .25rem;
+}
+
+.groupcard {
+  width: 33%;
+  text-align: left;
+  background-color: var(--dark);
+  color: var(--light);
+  border: 1px solid var(--tertiary);
+}
+
+.gamecard {
+  width: 100%;
+  text-align: left;
+  background-color: var(--darkest);
+  color: var(--light);
+  border: 1px solid var(--tertiary);
+  border-radius: .25rem;
 }
 
 .error-text {
   color: var(--error);
 }
 
+.alert {
+  position: relative;
+  padding: .5rem 1rem;
+  margin: 1rem 0;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+.list-group-item {
+  background-color: var(--dark);
+  color: var(--light);
+  font-size: .9rem;
+  border: 1px solid var(--tertiary);
+
+}
+
+.list-group-item:hover {
+  background-color: var(--darkest);
+}
+
+.logo {
+  width: 100%;
+  text-align: center;
+}
+
 @media screen and (max-width: 768px) {
+  .logo {
+    width: 100%;
+    text-align: center;
+  }
+
   .card {
     width: 100%;
+  }
+
+  .noteform {
+    width: 100%;
+  }
+
+  .note {
+    width: 100%;
+    margin: 0;
   }
 }

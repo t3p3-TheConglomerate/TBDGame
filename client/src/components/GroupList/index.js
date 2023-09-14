@@ -15,6 +15,8 @@ function GroupList() {
   const userData = data?.me || data?.user || {};
   console.log(data);
 
+
+
   return (
     <>
       <div className="Row">
