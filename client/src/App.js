@@ -9,15 +9,15 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import Home from './pages/Home';
-import Detail from './pages/Detail';
+// import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Nav from './components/Nav';
-import Test from './pages/Test';
+import Test from './pages/ApiTest';
 import { StoreProvider } from './utils/GlobalState';
-import Success from './pages/Success';
-import OrderHistory from './pages/OrderHistory';
+// import Success from './pages/Success';
+// import OrderHistory from './pages/OrderHistory';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -59,21 +59,21 @@ function App() {
                 element={<Signup />} 
               />
               <Route
-                path="/test"
+                path="/group/:groupId"
                 element={<Test />}
               />
-              <Route 
+              {/* <Route 
                 path="/success" 
                 element={<Success />} 
-              />
-              <Route 
+              /> */}
+              {/* <Route 
                 path="/orderHistory" 
                 element={<OrderHistory />} 
-              />
-              <Route 
+              /> */}
+              {/* <Route 
                 path="/products/:id" 
                 element={<Detail />} 
-              />
+              /> */}
               <Route 
                 path="*" 
                 element={<NoMatch />} 

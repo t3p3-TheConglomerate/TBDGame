@@ -1,17 +1,42 @@
 import React, { useState } from "react";
 
 import { useMutation } from "@apollo/client";
-import { ADD_THOUGHT as ADD_NOTE } from "../../utils/mutations";
+import { ADD_NOTE } from "../../utils/mutations";
+import { QUERY_ME } from "../../utils/queries";
 
 const NoteForm = () => {
   const [formState, setFormState] = useState({
     noteText: "",
-    noteCategory: "",
-    thoughtAuthor: "",
+    category: "",
+    noteAuthor: "",
   });
+
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addNote, { error }] = useMutation(ADD_NOTE);
+
+  // const [addNote, { error }] = useMutation(ADD_NOTE, {
+  //   update(cache, { data: { addNote } }) {
+  //     try {
+  //       const { notes } = cache.readQuery({ query: QUERY_NOTES });
+
+  //       cache.writeQuery({
+  //         query: QUERY_NOTES,
+  //         data: { notes: [addNote, ...notes] },
+  //       });
+  //     } catch (e) {
+  //       console.error(e);
+  //     }
+
+  //     // update me object's cache
+  //     const { me } = cache.readQuery({ query: QUERY_ME });
+  //     cache.writeQuery({
+  //       query: QUERY_ME,
+  //       data: { me: { ...me, notes: [...me.notes, addNotes] } },
+  //     });
+  //   },
+  // });
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -26,16 +51,16 @@ const NoteForm = () => {
     }
   };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
+  // const handleChange = (event) => {
+  //   const { name, value } = event.target;
 
-    if (name === "noteText" && value.length <= 280) {
-      setFormState({ ...formState, [name]: value });
-      setCharacterCount(value.length);
-    } else if (name !== "noteText") {
-      setFormState({ ...formState, [name]: value });
-    }
-  };
+  //   if (name === "noteText" && value.length <= 280) {
+  //     setFormState({ ...formState, [name]: value });
+  //     setCharacterCount(value.length);
+  //   } else if (name !== "noteText") {
+  //     setFormState({ ...formState, [name]: value });
+  //   }
+  // };
 
   return (
     <div>
@@ -56,14 +81,17 @@ const NoteForm = () => {
         <div className="col-12 col-lg-9">
           <select
             className="form-input"
-            name="noteCategory"
-            value={formState.noteCategory}
-            onChange={handleChange}
+            name="category"
+            value={formState.category}
+            // onChange={handleChange}
           >
             <option value="">Choose the Notes category</option>
             <option value="music">music</option>
             <option value="art">art</option>
             <option value="gameplay">gameplay</option>
+            <option value="narrative">narrative</option>
+            <option value="graphics">graphics</option>
+            <option value="misc">misc</option>
           </select>
         </div>
 
@@ -71,9 +99,9 @@ const NoteForm = () => {
           <textarea
             name="NoteText"
             placeholder="Create your note here"
-            value={formState.noteText}
+            // value={formState.noteText}
             className="form-input w-100"
-            onChange={handleChange}
+            // onChange={}
           ></textarea>
         </div>
 
