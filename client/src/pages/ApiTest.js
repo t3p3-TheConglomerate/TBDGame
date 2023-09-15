@@ -5,6 +5,7 @@ import GameComponent from "../components/GameSearch";
 import "./ApiTest.css";
 import MemberList from "../components/MemberList";
 import NoteForm from "../components/NoteForm";
+import NoteList from "../components/NoteList";
 import { QUERY_SINGLE_GROUP, GET_ME } from "../utils/queries";
 import JoinGroup from "../components/JoinGroup";
  
@@ -24,8 +25,8 @@ const {loading: meLoading, data: meData}  = useQuery(GET_ME);
 
 
 
-  console.log('data', data, loading);
-  console.log('groupmembers:', group?.groupMembers , meData?.me._id);
+  // console.log('data', data, loading);
+  // console.log('groupmembers:', group?.groupMembers , meData?.me._id);
   // group.groupMembers.find(context.user._id)
   
   if (!group?.groupMembers?.some(member => meData?.me?._id === member._id)) {
@@ -53,23 +54,20 @@ const {loading: meLoading, data: meData}  = useQuery(GET_ME);
         </div>
 
         <div className="notes">
-          <ul className="category">
+          
             {/* make categories expandable, asc/desc by date, filter by user */}
-            <div className="title">
+            <ul className="title">
               {group?.notes?.map((note) => {
                 return (
-                  <div className="category">
-                    {note.category}
-                  </div>
+                  
+                    <NoteList note={note} key={note._id}/>
+                  
                 )
               })
               } test this category
-            </div>
-            <li className="note">
-              map saved notes here
-              <NoteForm />
-            </li>
-          </ul>
+            </ul>
+          
+          <NoteForm groupId={group?._id} username={meData?.me?.username} />
         </div>
       </div>
     </div>

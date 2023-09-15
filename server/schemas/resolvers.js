@@ -7,7 +7,10 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       // if (context.user) {
-      return User.findOne({ _id: context.user._id });
+       const foundUser = await User.findOne({ _id: context.user._id }).populate('groups');
+        
+       console.log("foundUser:", foundUser )
+       return foundUser
       // }
       // throw new AuthenticationError("You need to be logged in!");
     },
@@ -115,12 +118,13 @@ const resolvers = {
       throw new AuthenticationError("Only the group owner can change this");
     },
     addNote: async (parent, { groupId, noteText, noteAuthor, category }, context) => {
+      console.log('note user context:', context.user)
       if (context.user) {
         console.log('Step 1');
         const noteToAdd = await Note.create({
           noteText: noteText,
-          noteAuthor: context.user.username,
-          // noteAuthor: noteAuthor,
+          // noteAuthor: context.user.username,
+          noteAuthor: noteAuthor,
           category: category,
         });
         console.log("addNote",noteToAdd)

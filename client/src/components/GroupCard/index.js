@@ -35,12 +35,12 @@ function GroupCard() {
       </div>
       <div className="mt-3 mb-1">
         <h6 className="mb-2">Members</h6>
-        <ul class="list-group">
-          <li class="list-group-item">Ryan</li>
-          <li class="list-group-item">Jordan C</li>
-          <li class="list-group-item">Sara</li>
-          <li class="list-group-item">Andrew</li>
-          <li class="list-group-item">Jordan W</li>
+        <ul className="list-group">
+          <li className="list-group-item">Ryan</li>
+          <li className="list-group-item">Jordan C</li>
+          <li className="list-group-item">Sara</li>
+          <li className="list-group-item">Andrew</li>
+          <li className="list-group-item">Jordan W</li>
         </ul>
       </div>
       <div>

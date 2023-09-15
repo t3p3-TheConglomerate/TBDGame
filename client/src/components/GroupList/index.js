@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 function GroupList() {
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || data?.user || {};
-  console.log(data);
+  // console.log(data);
 
 
 
@@ -21,11 +21,11 @@ function GroupList() {
     <>
       <div className="Row">
         {userData &&
-          userData.groups &&
+          userData?.groups &&
           userData?.groups?.map((group) => {
             return (
-              <Col md="4">
-                <Card key={group.groupName} border="dark">
+              <Col key={group.groupName} md="4">
+                <Card border="dark">
                   {group.gameImage ? (
                     <Card.Img
                       src={group.gameImage}

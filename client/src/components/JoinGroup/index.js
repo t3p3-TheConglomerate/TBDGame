@@ -18,7 +18,7 @@ function JoinGroup({groupId, userId}) {
             const { data } = await joinGroup({
                 variables: { groupId: groupId, _id: userId },
             });
-            console.log(data);
+            // console.log(data);
             window.location.reload()
         } catch (err) {
             console.error(err);

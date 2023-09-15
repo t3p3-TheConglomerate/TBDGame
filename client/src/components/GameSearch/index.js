@@ -1,9 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useMutation, useQuery } from '@apollo/client';
+import { UPDATE_GROUP } from '../../utils/mutations';
+import { QUERY_SINGLE_GROUP, GET_ME } from "../../utils/queries";
+import { useParams } from "react-router-dom";
 import './index.css';
-
 const apiKey = process.env.REACT_APP_API_KEY;
 
-const ApiTest = () => {
+const GameComponent = () => {
+  const { groupId } = useParams();
+  console.log('params check:', groupId)
   const [selectedGame, setSelectedGame] = useState(null);
   const [search, setSearch] = useState('');
   const [games, setGames] = useState([]);
@@ -13,6 +18,12 @@ const ApiTest = () => {
 
   const apiUrl = `/api/search/?api_key=${apiKey}&format=json&query=${search}&resources=game`;
 
+  const [updateGroup, { error }] = useMutation(UPDATE_GROUP);
+
+  const { data: groupData, loading: groupLoading, error: groupError } = useQuery(QUERY_SINGLE_GROUP, {
+    variables: { id: groupId },
+  });
+  console.log('check group data', groupData);
   const fetchData = async () => {
     try {
       setLoading(true);
@@ -42,9 +53,27 @@ const ApiTest = () => {
     }
   }, [search]);
 
-  const handleGameClick = (game) => {
+  const handleGameClick = async (game) => {
     setSearch('');
     setSelectedGame(game);
+    // post selected game to group game.name, game.desk, game.image.small_url using the update group mutation
+    if (groupId && groupData) {
+      const groupName = groupData?.group?.groupName;
+
+      try {
+        await updateGroup({
+          variables: {
+            _id: groupId,
+            groupName,
+            gameName: game.name,
+            gameDescription: game.deck,
+            gameImage: game.image.small_url
+          },
+        });
+      } catch (err) {
+        console.error(err);
+      }
+    }
   };
 
   const handleInputChange = (e) => {
@@ -69,53 +98,58 @@ const ApiTest = () => {
   };
 
   useEffect(() => {
-    inputRef.current.focus();
+    inputRef.current?.focus();
   }, []);
 
-  return (
-    <div>
-      {selectedGame ? (
-        <div className='selectedGame'>
-          <h1>Selected Game</h1>
-          <button onClick={() => setSelectedGame(null)}>Change Game</button>
-          <h2>{selectedGame.name}</h2>
-          <img src={selectedGame.image?.small_url} alt={selectedGame.name} />
-          <p>GUID: {selectedGame.guid}</p>
-          <p>Description: {selectedGame.deck}</p>
-        </div>
-      ) : (
-        <div className='searchContainer'>
-          <h1>Game Search</h1>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Enter a game title"
-              value={search}
-              onChange={handleInputChange}
-              onKeyDown={handleKeyDown}
-              ref={inputRef}
-            />
-          </form>
+  console.log('group.gameName', groupData?.group?.gameName);
 
-          {loading ? (
-            <p>Loading...</p>
-          ) : (
-            <ul>
-              {games.map((game, index) => (
-                <li
-                  key={game.guid}
-                  className={index === highlightedIndex ? 'gameList highlighted' : 'gameList'}
-                  onClick={() => handleGameClick(game)}
-                >
-                  <h2>{game.name}</h2>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+  if (groupData?.group?.gameName) {
+
+    return (
+      <div className='selectedGame'>
+        <h1>Selected Game</h1>
+        <button onClick={() => setSelectedGame(null)}>Change Game</button>
+        <h2>{groupData.group.gameName}</h2>
+        <img src={groupData.group.gameImage} alt={groupData.group.gameName} />
+        <p>Description: {groupData.group.gameDescription}</p>
+      </div>
+    )
+  };
+
+  return (
+    <div className='searchContainer'>
+      <h1>Game Search</h1>
+      <p>{groupData.group.gameName}</p>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Enter a game title"
+          value={search}
+          onChange={handleInputChange}
+          onKeyDown={handleKeyDown}
+          ref={inputRef}
+        />
+      </form>
+
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <ul>
+          {games.map((game, index) => (
+            <li
+              key={game.guid}
+              className={index === highlightedIndex ? 'gameList highlighted' : 'gameList'}
+              onClick={() => handleGameClick(game)}
+            >
+              <h2>{game.name}</h2>
+            </li>
+          ))}
+        </ul>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default ApiTest;
+
+
+export default GameComponent;

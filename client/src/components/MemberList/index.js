@@ -11,8 +11,6 @@ const MemberList = () => {
   });
   const group = data?.group || {};
  
-  console.log(group?.groupMembers?.map((member) => console.log(member._id)))
-
   return (
     <div>
       <h3>Group Members</h3>
