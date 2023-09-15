@@ -4,11 +4,11 @@ import { useMutation } from "@apollo/client";
 import { ADD_NOTE } from "../../utils/mutations";
 import { QUERY_ME } from "../../utils/queries";
 
-const NoteForm = () => {
+const NoteForm = (props) => {
+  // console.log("groupID props", props);
   const [formState, setFormState] = useState({
     noteText: "",
     category: "",
-    noteAuthor: "",
   });
 
   const [characterCount, setCharacterCount] = useState(0);
@@ -39,28 +39,27 @@ const NoteForm = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+      // console.log('formState:', formState);
+      
     try {
       const { data } = await addNote({
-        variables: { ...formState },
+        variables: { groupId: props.groupId, noteAuthor: props.username, ...formState },
       });
-
-      window.location.reload();
+    //  window.location.reload();
+    setFormState({
+      noteText: "",
+      category: "",
+    })
     } catch (err) {
       console.error(err);
     }
   };
 
-  // const handleChange = (event) => {
-  //   const { name, value } = event.target;
-
-  //   if (name === "noteText" && value.length <= 280) {
-  //     setFormState({ ...formState, [name]: value });
-  //     setCharacterCount(value.length);
-  //   } else if (name !== "noteText") {
-  //     setFormState({ ...formState, [name]: value });
-  //   }
-  // };
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+ setFormState({ ...formState, [name]: value });
+  
+  };
 
   return (
     <div className="noteform p-4 my-2">
@@ -81,7 +80,7 @@ const NoteForm = () => {
             className="form-select"
             name="category"
             value={formState.category}
-//             onChange={handleChange}
+            onChange={handleChange}
           >
             <option value="">Choose a category</option>
             <option value="music">Music</option>
@@ -93,12 +92,12 @@ const NoteForm = () => {
 
         <div className="my-2">
           <textarea
-            name="NoteText"
+            name="noteText"
             placeholder="Write a note..."
-            // value={formState.noteText}
+            value={formState.noteText}
 
             className="w-100 form-control"
-//             onChange={handleChange}
+            onChange={handleChange}
 
           ></textarea>
         </div>
