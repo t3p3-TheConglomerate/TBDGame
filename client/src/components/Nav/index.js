@@ -11,13 +11,13 @@ function Nav() {
         <ul className="flex-row">
           <li className="mx-1">
             <Link to="/test">
-              Test
+              <h6>Test</h6>
             </Link>
           </li>
           <li className="mx-1">
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <a href="/" onClick={() => Auth.logout()}>
-              Logout
+              <h6>Logout</h6>
             </a>
           </li>
         </ul>
@@ -27,22 +27,22 @@ function Nav() {
         <ul className="flex-row nav">
           <li>
             <Link to="/signup">
-              Signup
+              <h6>Signup</h6>
             </Link>
           </li>
           <li className="mx-1">
             <Link to="/login">
-              Login
+              <h6>Login</h6>
             </Link>
           </li>
           <li className="mx-1">
             <Link to="/test">
-              Test
+              <h6>Test</h6>
             </Link>
           </li>
           <li className="mx-1">
             <Link to="/group">
-              Group Page
+              <h6>Group</h6>
             </Link>
           </li>
         </ul>
@@ -51,20 +51,19 @@ function Nav() {
   }
 
   return (
-    <header className="flex-row px-1 container">
+    <header className="flex-row px-1 container items-center">
+      <div className="col-5 items-center">
+        <h6>Ullr's Tavern</h6>
+        </div>
       <div className="col-12 logo">
         <Link to="/">
-
         <img src="./ut-logo.png" className="logo" alt="logo" />
-
         </Link>
-        </div>
-        <div className="col-12">
-        <nav>
+      </div>
+        <div className="col-5">
         {showNavigation()}
-      </nav>
-          </div>
-    </header>
+        </div>
+    </header >
   );
 }
 

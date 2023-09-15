@@ -28,10 +28,10 @@ function JoinGroup({groupId, userId}) {
   return (
     <>
       <div className="joingroup p-4 my-2">
-        <Button onClick={groupJoin} className="mt-3 bg-primary">Join group</Button>
-        <Button 
+        <button onClick={groupJoin} className="mt-3 bg-primary">Join group</button>
+        <button 
         // onClick={redirect to home} 
-        className="mt-3 bg-danger">No thanks</Button>
+        className="mt-3 bg-danger">No thanks</button>
       </div>
     </>
   );
