@@ -54,20 +54,23 @@ const {loading: meLoading, data: meData}  = useQuery(GET_ME);
         </div>
 
         <div className="notes">
+                  <NoteForm groupId={group?._id} username={meData?.me?.username} />
           
             {/* make categories expandable, asc/desc by date, filter by user */}
+            <div className="notelist">
+
             <ul className="title">
               {group?.notes?.map((note) => {
                 return (
                   
-                    <NoteList note={note} key={note._id}/>
+                  <NoteList note={note} key={note._id}/>
                   
-                )
-              })
+                  )
+                })
               } test this category
             </ul>
+              </div>
           
-          <NoteForm groupId={group?._id} username={meData?.me?.username} />
         </div>
       </div>
     </div>

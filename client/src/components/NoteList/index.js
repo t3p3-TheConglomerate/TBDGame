@@ -1,4 +1,5 @@
 import React from "react";
+import "./index.css";
 
 const NoteList = ({ note, group }) => {
   // if (!notes.length) {
