@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import { useMutation, gql } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { ADD_NOTE } from "../../utils/mutations";
-import { QUERY_GROUP, QUERY_ME } from "../../utils/queries";
+import { QUERY_ME, QUERY_SINGLE_GROUP, QUERY_NOTE } from "../../utils/queries";
 
 const NoteForm = (props) => {
   // console.log("groupID props", props);
@@ -11,21 +11,6 @@ const NoteForm = (props) => {
     category: "",
   });
 
-  const ADD_NOTE = gql`
-    query Group($groupId: ID!) {
-      group(_id: $groupId) {
-        notes {
-          _id
-          noteText
-          noteAuthor
-          createdAt
-          category
-        }
-      }
-    }
-    ${QUERY_GROUP}
-  `;
-
   const [characterCount, setCharacterCount] = useState(0);
 
   // const [addNote, { error }] = useMutation(ADD_NOTE);
@@ -33,11 +18,13 @@ const NoteForm = (props) => {
   const [addNote, { error }] = useMutation(ADD_NOTE, {
     update(cache, { data: { addNote } }) {
       try {
-        const { notes } = cache.readQuery({ query: ADD_NOTE });
-       console.log("cached notes", notes);
+        const {group} = cache.readQuery({ query: QUERY_NOTE, variables: { id: props.groupId } });
+        console.log("group", group);
+       console.log("cached notes", group);
+       console.log("full list", [...group.notes, addNote]);
         cache.writeQuery({
-          query: ADD_NOTE,
-          data: { notes: [addNote, ...formState] },
+          query: QUERY_NOTE,
+          data: { group, notes: [...group.notes, addNote] },
           variables: { groupId: props.groupId },
         });
       } catch (e) {
