@@ -81,9 +81,7 @@ a {
 }
 
 a:hover {
-  text-decoration: none;
-  color: var(--primary)
-}
+  text-decoration: none;}
 
 header {
   background: var(--darkest);
@@ -228,6 +226,10 @@ input:focus {
   padding-bottom: var(--spacing-two);
 }
 
+.nav {
+  padding-bottom: 1rem;
+}
+
 .card {
   width: 33%;
   text-align: left;
@@ -237,21 +239,22 @@ input:focus {
 }
 
 .noteform {
-  width: 57%;
+  width: 100%;
   text-align: left;
   background-color: var(--dark);
   color: var(--light);
   border: 1px solid var(--tertiary);
+  margin: 1rem 0 0 1rem;
   border-radius: .25rem;
 }
 
 .note {
-  width: 65%;
+  width: 100%;
   text-align: left;
   background-color: var(--dark);
   color: var(--light);
   border: 1px solid var(--tertiary);
-  margin-left: 1rem;
+  margin: 0 0 1rem 1rem;
   border-radius: .25rem;
 }
 
@@ -266,11 +269,23 @@ input:focus {
 }
 
 .groupcard {
-  width: 33%;
+  width: 100%;
   text-align: left;
   background-color: var(--dark);
   color: var(--light);
   border: 1px solid var(--tertiary);
+  margin: 0 1rem 1rem 0;
+  border-radius: .25rem;
+}
+
+.enterbutton {
+  background-color: var(--darker);
+  color: var(--light);
+}
+
+.enterbutton:hover {
+  background-color: var(--light);
+  color: var(--darkest);
 }
 
 .gamecard {
@@ -307,26 +322,24 @@ input:focus {
 }
 
 .logo {
-  width: 100%;
-  text-align: center;
+  width: 100px;
+  margin: 0 auto;
+  padding: 1rem 0 .5rem 0;
 }
 
 @media screen and (max-width: 768px) {
-  .logo {
-    width: 100%;
-    text-align: center;
-  }
-
   .card {
     width: 100%;
   }
 
   .noteform {
     width: 100%;
+    margin-left: 0;
   }
 
   .note {
     width: 100%;
-    margin: 0;
+    margin-bottom: 1rem;
+    margin-left: 0;
   }
 }
