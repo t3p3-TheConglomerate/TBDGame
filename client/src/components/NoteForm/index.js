@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import { useMutation } from "@apollo/client";
 import { ADD_NOTE } from "../../utils/mutations";
-import { QUERY_ME } from "../../utils/queries";
+import { QUERY_ME, QUERY_SINGLE_GROUP, QUERY_NOTE } from "../../utils/queries";
 
 const NoteForm = (props) => {
   // console.log("groupID props", props);
@@ -13,29 +13,32 @@ const NoteForm = (props) => {
 
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addNote, { error }] = useMutation(ADD_NOTE);
+  // const [addNote, { error }] = useMutation(ADD_NOTE);
 
-  // const [addNote, { error }] = useMutation(ADD_NOTE, {
-  //   update(cache, { data: { addNote } }) {
-  //     try {
-  //       const { notes } = cache.readQuery({ query: QUERY_NOTES });
+  const [addNote, { error }] = useMutation(ADD_NOTE, {
+    update(cache, { data: { addNote } }) {
+      try {
+        const {group} = cache.readQuery({ query: QUERY_NOTE, variables: { id: props.groupId } });
+        console.log("group", group);
+       console.log("cached notes", group);
+       console.log("full list", [...group.notes, addNote]);
+        cache.writeQuery({
+          query: QUERY_NOTE,
+          data: { group, notes: [...group.notes, addNote] },
+          variables: { id: props.groupId },
+        });
+      } catch (e) {
+        console.error(e);
+      }
 
-  //       cache.writeQuery({
-  //         query: QUERY_NOTES,
-  //         data: { notes: [addNote, ...notes] },
-  //       });
-  //     } catch (e) {
-  //       console.error(e);
-  //     }
-
-  //     // update me object's cache{}
-  //     const { me } = cache.readQuery({ query: QUERY_ME });
-  //     cache.writeQuery({
-  //       query: QUERY_ME,
-  //       data: { me: { ...me, notes: [...me.notes, addNotes] } },
-  //     });
-  //   },
-  // });
+      // update me object's cache{}
+      // const { me } = cache.readQuery({ query: QUERY_ME });
+      // cache.writeQuery({
+      //   query: QUERY_ME,
+      //   data: { me: { ...me, notes: [...me.notes, addNotes] } },
+      // });
+    },
+  });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();

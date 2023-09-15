@@ -94,3 +94,17 @@ query singleUser($id: ID!) {
     }
   }
 `;
+
+export const QUERY_NOTE = gql`
+query group($id: ID!) {
+  group(_id: $id) {
+    notes {
+      _id
+      noteText
+      noteAuthor
+      category
+      createdAt
+    }
+  }
+}
+`;
