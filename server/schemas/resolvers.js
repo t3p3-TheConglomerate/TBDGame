@@ -9,7 +9,7 @@ const resolvers = {
       // if (context.user) {
        const foundUser = await User.findOne({ _id: context.user._id }).populate('groups');
         
-       console.log("foundUser:", foundUser )
+      //  console.log("foundUser:", foundUser )
        return foundUser
       // }
       // throw new AuthenticationError("You need to be logged in!");

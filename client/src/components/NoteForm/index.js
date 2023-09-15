@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
-import { useMutation } from "@apollo/client";
+import { useMutation, gql } from "@apollo/client";
 import { ADD_NOTE } from "../../utils/mutations";
-import { QUERY_ME } from "../../utils/queries";
+import { QUERY_GROUP, QUERY_ME } from "../../utils/queries";
 
 const NoteForm = (props) => {
   // console.log("groupID props", props);
@@ -11,31 +11,47 @@ const NoteForm = (props) => {
     category: "",
   });
 
+  const ADD_NOTE = gql`
+    query Group($groupId: ID!) {
+      group(_id: $groupId) {
+        notes {
+          _id
+          noteText
+          noteAuthor
+          createdAt
+          category
+        }
+      }
+    }
+    ${QUERY_GROUP}
+  `;
+
   const [characterCount, setCharacterCount] = useState(0);
 
-  const [addNote, { error }] = useMutation(ADD_NOTE);
+  // const [addNote, { error }] = useMutation(ADD_NOTE);
 
-  // const [addNote, { error }] = useMutation(ADD_NOTE, {
-  //   update(cache, { data: { addNote } }) {
-  //     try {
-  //       const { notes } = cache.readQuery({ query: QUERY_NOTES });
+  const [addNote, { error }] = useMutation(ADD_NOTE, {
+    update(cache, { data: { addNote } }) {
+      try {
+        const { notes } = cache.readQuery({ query: ADD_NOTE });
+       console.log("cached notes", notes);
+        cache.writeQuery({
+          query: ADD_NOTE,
+          data: { notes: [addNote, ...formState] },
+          variables: { groupId: props.groupId },
+        });
+      } catch (e) {
+        console.error(e);
+      }
 
-  //       cache.writeQuery({
-  //         query: QUERY_NOTES,
-  //         data: { notes: [addNote, ...notes] },
-  //       });
-  //     } catch (e) {
-  //       console.error(e);
-  //     }
-
-  //     // update me object's cache{}
-  //     const { me } = cache.readQuery({ query: QUERY_ME });
-  //     cache.writeQuery({
-  //       query: QUERY_ME,
-  //       data: { me: { ...me, notes: [...me.notes, addNotes] } },
-  //     });
-  //   },
-  // });
+      // update me object's cache{}
+      // const { me } = cache.readQuery({ query: QUERY_ME });
+      // cache.writeQuery({
+      //   query: QUERY_ME,
+      //   data: { me: { ...me, notes: [...me.notes, addNotes] } },
+      // });
+    },
+  });
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
