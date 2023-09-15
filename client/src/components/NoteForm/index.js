@@ -25,7 +25,7 @@ const NoteForm = (props) => {
         cache.writeQuery({
           query: QUERY_NOTE,
           data: { group, notes: [...group.notes, addNote] },
-          variables: { groupId: props.groupId },
+          variables: { id: props.groupId },
         });
       } catch (e) {
         console.error(e);
