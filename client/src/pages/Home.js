@@ -26,7 +26,7 @@ const Home = () => {
           <CreateGroup />
         </div>
       </div>
-      <div class="row gx-4 gy-2">
+      <div className="row gx-4 gy-2">
 
         {/* GroupCard displays on the Home page for each Group that the User has joined */}
         <div className="col-12 col-lg-4 col-md-4 col-sm-6">
@@ -41,6 +41,7 @@ const Home = () => {
         <div className="col-12 col-lg-4 col-md-4 col-sm-6">
           <GroupCard />
         </div>
+        <GroupList />
 
       </div>
       {/* <div className="col-12 col-md-8 mb-3">
