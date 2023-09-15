@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useQuery, useLazyQuery } from "@apollo/client";
+import { useParams } from "react-router-dom";
+import { QUERY_SINGLE_GROUP, GET_ME } from "../../utils/queries";
 import { Link } from "react-router-dom";
+import MemberList from "../MemberList";
 // import { pluralize } from "../../utils/helpers";
 
 // import { idbPromise } from "../../utils/helpers";
 
 function GroupSidebar() {
 
+  const { groupId } = useParams();
 
-  // const { _id,  gameName, gameDescription, gameImage, groupOwner, groupMembers, notes } = Group;
+  // Fetch the group data
+  const { loading: groupLoading, data: groupData } = useQuery(QUERY_SINGLE_GROUP, {
+    variables: { id: groupId },
+  });
 
-
-
-
+  // Fetch the user's data
+  const { loading: meLoading, data: meData } = useQuery(GET_ME);
+  
+  const group = groupData?.group || {};
   return (
 
     <div className="card p-4">
@@ -23,7 +32,7 @@ function GroupSidebar() {
         />
         <p>{}</p>
       </Link> */}
-        <h2>Diabros</h2>
+        <h2>{group.groupName}</h2>
         <p>We meet on Thursday nights. Don't be late. BYOB!!!1 #bronight</p>
       </div>
       <div className="gamecard">
@@ -35,12 +44,9 @@ function GroupSidebar() {
       </div>
       <div className="mt-3 mb-1">
         <h6 className="mb-2">Members</h6>
-        <ul class="list-group">
-          <li class="list-group-item">Ryan</li>
-          <li class="list-group-item">Jordan C</li>
-          <li class="list-group-item">Sara</li>
-          <li class="list-group-item">Andrew</li>
-          <li class="list-group-item">Jordan W</li>
+        <ul class="list-group member">
+          <li class="list-group-item"><MemberList /></li>
+
         </ul>
       </div>
       <div>

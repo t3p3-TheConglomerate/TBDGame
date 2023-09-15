@@ -6,6 +6,7 @@ import spinner from "../../assets/spinner.gif";
 import { QUERY_GROUP } from "../../utils/queries";
 import { GET_ME } from "../../utils/queries";
 import { Link } from "react-router-dom";
+import GroupCard from "../GroupCard";
 
 // query group then match id with url id and get name
 
@@ -19,32 +20,35 @@ function GroupList() {
 
   return (
     <>
-      <div className="Row">
+      <div className="row">
         {userData &&
           userData?.groups &&
           userData?.groups?.map((group) => {
             return (
-              <Col key={group.groupName} md="4">
-                <Card border="dark">
-                  {group.gameImage ? (
-                    <Card.Img
-                      src={group.gameImage}
-                      alt={`The cover for ${group.groupName}`}
-                      variant="top"
-                    />
-                  ) : null}
-                  <Card.Body key={group.groupId}>
-                    <Card.Title>{group.groupName}</Card.Title>
-                    <p className="small">Group: {group.groupName}</p>
-                    <Card.Text>{group.gameDescription}</Card.Text>
-                    <Button
-                      className="btn-block btn-danger"
-                    >
-                      <Link to={`/group/${group._id}`}>View Group</Link>
-                    </Button>
-                  </Card.Body>
-                </Card>
-              </Col>
+              // <Col key={group.groupName} md="4">
+              //   <Card border="dark">
+              //     {group.gameImage ? (
+              //       <Card.Img
+              //         src={group.gameImage}
+              //         alt={`The cover for ${group.groupName}`}
+              //         variant="top"
+              //       />
+              //     ) : null}
+              //     <Card.Body key={group.groupId}>
+              //       <Card.Title>{group.groupName}</Card.Title>
+              //       <p className="small">Group: {group.groupName}</p>
+              //       <Card.Text>{group.gameDescription}</Card.Text>
+              //       <Button
+              //         className="btn-block btn-danger"
+              //       >
+              //         <Link to={`/group/${group._id}`}>View Group</Link>
+              //       </Button>
+              //     </Card.Body>
+              //   </Card>
+              // </Col>
+              <div className="col-12 col-lg-4 col-md-4 col-sm-6">
+              <GroupCard />
+              </div>
             );
           })}
       </div>

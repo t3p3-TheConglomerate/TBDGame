@@ -3,6 +3,7 @@ import { useQuery, useLazyQuery  } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import GameComponent from "../components/GameSearch";
 import "./ApiTest.css";
+import "../../src/index.css";
 import MemberList from "../components/MemberList";
 import NoteForm from "../components/NoteForm";
 import NoteList from "../components/NoteList";
