@@ -25,21 +25,15 @@ export const LOGIN = gql`
 `;
 
 export const ADD_NOTE = gql`
-  mutation addNote($noteText: String!, $noteAuthor: String!, $createdAt: String!, $category: String!) {
-    addNote(noteText: $noteText, noteAuthor: $noteAuthor, createdAt: $createdAt, category: $category) {
-      _id
-      noteText
-      noteAuthor
-      createdAt
-      category
-      comments {
-        _id
-        commentText
-        commentAuthor
-        createdAt
-      }
-    }
+mutation Mutation($groupId: ID!, $noteText: String!, $noteAuthor: String!, $category: String) {
+  addNote(groupId: $groupId, noteText: $noteText, noteAuthor: $noteAuthor, category: $category) {
+    noteText
+    noteAuthor
+    category
+    _id
+    createdAt
   }
+}
 `;
 
 export const DELETE_NOTE = gql`

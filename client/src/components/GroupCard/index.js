@@ -33,6 +33,18 @@ function GroupCard() {
 
         </div>
       </div>
+// this is the merged conflict may need checking on FrontEndTest branch
+      <div className="mt-3 mb-1">
+        <h6 className="mb-2">Members</h6>
+        <ul className="list-group">
+          <li className="list-group-item">Ryan</li>
+          <li className="list-group-item">Jordan C</li>
+          <li className="list-group-item">Sara</li>
+          <li className="list-group-item">Andrew</li>
+          <li className="list-group-item">Jordan W</li>
+        </ul>
+      </div>
+
       <div>
         <button className="mt-3 enterbutton">Enter</button>
       </div>
