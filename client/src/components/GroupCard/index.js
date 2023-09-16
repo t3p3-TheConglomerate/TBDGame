@@ -1,29 +1,26 @@
 import React from "react";
+import { useQuery } from "@apollo/client";
+import { useParams } from "react-router-dom";
+import { QUERY_SINGLE_GROUP, QUERY_SINGLE_USER } from "../../utils/queries";
+import { Container, Card, Button, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-// import { pluralize } from "../../utils/helpers";
 
-// import { idbPromise } from "../../utils/helpers";
+const GroupCard = ({group}) => {
 
-function GroupCard() {
+  const { loading, data } = useQuery(QUERY_SINGLE_GROUP, {
+       variables: { id: group },
+   });
 
-
-  // const { _id,  gameName, gameDescription, gameImage, groupOwner, groupMembers, notes } = Group;
+   console.log("data",data);
 
 
 
 
   return (
 
-    <div className="groupcard p-4">
+    <div className="groupcard p-4 col-12 col-sm-6 col-md-3 col-lg-4">
       <div>
-        {/* <Link to={`/group/${}`}>
-        <img
-          alt={}
-          src={`/images/${}`}
-        />
-        <p>{}</p>
-      </Link> */}
-        <h2>Diabros</h2>
+        <h2>{data?.group?.groupName}</h2>
         <p>We meet on Thursday nights. Don't be late. BYOB!!!1 #bronight</p>
       </div>
       <div className="gamecard mb-1">
@@ -33,21 +30,13 @@ function GroupCard() {
 
         </div>
       </div>
-// this is the merged conflict may need checking on FrontEndTest branch
-      <div className="mt-3 mb-1">
-        <h6 className="mb-2">Members</h6>
-        <ul className="list-group">
-          <li className="list-group-item">Ryan</li>
-          <li className="list-group-item">Jordan C</li>
-          <li className="list-group-item">Sara</li>
-          <li className="list-group-item">Andrew</li>
-          <li className="list-group-item">Jordan W</li>
-        </ul>
-      </div>
 
-      <div>
+      {/* <div>
         <button className="mt-3 enterbutton">Enter</button>
-      </div>
+      </div> */}
+      <Button className="enterbutton">
+      <Link to={`/group/${group}`} className="button">View Group</Link>
+      </Button>
     </div>
 
   );

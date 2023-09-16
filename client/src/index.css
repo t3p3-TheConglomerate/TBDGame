@@ -281,6 +281,7 @@ input:focus {
 .enterbutton {
   background-color: var(--darker);
   color: var(--light);
+  border: none;
 }
 
 .enterbutton:hover {

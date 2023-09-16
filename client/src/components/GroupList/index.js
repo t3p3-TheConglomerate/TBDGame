@@ -7,6 +7,8 @@ import { QUERY_GROUP } from "../../utils/queries";
 import { GET_ME } from "../../utils/queries";
 import { Link } from "react-router-dom";
 import GroupCard2 from "../GroupCard2/GroupCard2";
+import GroupCard from "../GroupCard";
+
 
 // query group then match id with url id and get name
 
@@ -21,7 +23,7 @@ function GroupList() {
 
   return (
     <>
-      <div className="Row">
+      <div className="flex-row">
         {
         // userData &&
         //   userData?.groups &&

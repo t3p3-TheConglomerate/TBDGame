@@ -17,7 +17,7 @@ const GroupCard2 = ({group}) => {
     console.log("data",data);
 
     return (
-        <Col key={data?.group?.groupName} md="4">
+        <Col key={data?.group?.groupName} md="4" sm="4">
         <Card border="dark">
             {data?.group?.gameImage ? (
             <Card.Img
@@ -31,7 +31,7 @@ const GroupCard2 = ({group}) => {
             <p className="small">Group: {data?.group?.groupName}</p>
             <Card.Text>{data?.group?.gameDescription}</Card.Text>
             <Button
-                className="btn-block btn-danger"
+                className="btn-block enterbutton"
             >
                 <Link to={`/group/${group}`}>View Group</Link>
             </Button>
