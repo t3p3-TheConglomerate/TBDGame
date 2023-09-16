@@ -15,15 +15,11 @@ import JoinGroup from "../components/JoinGroup";
 
 function ApiTest() {
   const { groupId } = useParams();
+  const {loading: meLoading, data: meData}  = useQuery(GET_ME);
   const { loading, data } = useQuery(QUERY_SINGLE_GROUP, {
     variables: { id: groupId },
   });
   const group = data?.group || {};
-
-const {loading: meLoading, data: meData}  = useQuery(GET_ME);
-
-
-
 
   // console.log('data', data, loading);
   // console.log('groupmembers:', group?.groupMembers , meData?.me._id);
