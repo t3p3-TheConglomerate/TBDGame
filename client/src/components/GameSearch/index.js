@@ -28,11 +28,11 @@ const GameComponent = () => {
     try {
       setLoading(true);
       const response = await fetch(apiUrl);
-      const data = await response.json();
-
+      
       const text = await response.text();
       console.log('api response: ', text);
       
+      const data = JSON.parse(text);
 
       setGames(data.results || []);
       setHighlightedIndex(-1);
