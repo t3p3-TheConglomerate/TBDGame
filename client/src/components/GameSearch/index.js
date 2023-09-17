@@ -69,6 +69,24 @@ const GameComponent = () => {
             gameDescription: game.deck,
             gameImage: game.image.small_url
           },
+          update: (cache, {data}) => {
+            const existingGroup = cache.readQuery({ query: QUERY_SINGLE_GROUP,
+              variables: { id: groupId }, 
+            });
+
+            cache.writeQuery({
+              query: QUERY_SINGLE_GROUP,
+              variables: { id: groupId },
+              data: {
+                group: {
+                  ...existingGroup.group,
+                  gameName: data.updateGroup.gameName,
+                  gameDescription: data.updateGroup.gameDescription,
+                  gameImage: data.updateGroup.gameImage
+                },
+              },
+        });
+      },
         });
       } catch (err) {
         console.error(err);
@@ -127,8 +145,18 @@ const GameComponent = () => {
     }
   };
 
-  if (groupData?.group?.gameName) {
 
+  if (selectedGame) {
+  return (
+    <div className='selectedGame'>
+      <h1>Selected Game</h1>
+      <button onClick={changeGame}>Change Game</button>
+      <h2>{selectedGame.name}</h2>
+      <img src={selectedGame.image?.small_url} alt={selectedGame.name} />
+      <p>Description: {selectedGame.deck}</p>
+    </div>
+  );
+} else if (groupData?.group?.gameName) {
     return (
       <div className='selectedGame'>
         <h1>Selected Game</h1>
@@ -137,13 +165,12 @@ const GameComponent = () => {
         <img src={groupData.group.gameImage} alt={groupData.group.gameName} />
         <p>Description: {groupData.group.gameDescription}</p>
       </div>
-    )
-  };
-
+    );
+  }
+  
   return (
     <div className='searchContainer'>
       <h1>Game Search</h1>
-      <p>{groupData.group.gameName}</p>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -154,7 +181,7 @@ const GameComponent = () => {
           ref={inputRef}
         />
       </form>
-
+  
       {loading ? (
         <p>Loading...</p>
       ) : (
@@ -171,9 +198,8 @@ const GameComponent = () => {
         </ul>
       )}
     </div>
-  )
-}
-
+  );
+};
 
 
 export default GameComponent;

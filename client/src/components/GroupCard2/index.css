@@ -1,0 +1,14 @@
+div.flex-row {
+    justify-content: space-evenly;
+}
+
+div.card.border-dark {
+    align-items: stretch;
+    height: 100%;
+}
+
+img.card-img-top {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}

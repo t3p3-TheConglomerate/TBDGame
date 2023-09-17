@@ -63,7 +63,7 @@ function ApiTest() {
                   
                   )
                 })
-              } test this category
+              } 
             </ul>
               </div>
           

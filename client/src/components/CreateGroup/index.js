@@ -4,6 +4,7 @@ import Modal from "react-modal";
 import { useMutation } from "@apollo/client";
 import { ADD_GROUP } from "../../utils/mutations";
 import { ModalHeader } from "react-bootstrap";
+import "./index.css";
 
 const customStyles = {
   content: {
@@ -56,7 +57,7 @@ const CreateGroup = () => {
 
   return (
     <div className="my-2">
-      <button onClick={openModal}>Create Group</button>
+      <button className="createGroup" onClick={openModal}>Create Group</button>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -70,7 +71,7 @@ const CreateGroup = () => {
 
         <form onSubmit={handleFormSubmit}>
           <label className="form-label" htmlFor="category">Group Name</label>
-          <input className="form-control" name="GroupName" onChange={(e) => setFormState(e.target.value)}/>
+          <input className="form-control" name="GroupName" placeholder="Add group name here!" onChange={(e) => setFormState(e.target.value)}/>
           <button className="bg-secondary">SEARCH</button>
           <button>Create</button>
         </form>

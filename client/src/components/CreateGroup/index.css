@@ -1,0 +1,22 @@
+button {
+    background-color: var(--darker);
+    color: var(--secondary);
+}
+
+div.ReactModal__Content {
+    background-color: var(--dark) !important;
+    color: var(--primary) !important;
+}
+
+label.form-label {
+    color: var(--primary) !important;
+}
+
+h2 {
+    color: var(--primary) !important; 
+}
+
+input.form-control {
+    background-color: var(--secondary) !important;
+    color: var(--primary) !important;
+}
