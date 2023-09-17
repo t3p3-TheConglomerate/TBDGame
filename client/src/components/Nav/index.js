@@ -55,7 +55,7 @@ function Nav() {
       <div className="col-12 logo">
         <Link to="/">
 
-        <img src="./ut-logo.png" className="logo" alt="logo" />
+        <img src="/ut-logo.png" className="logo" alt="logo" />
 
         </Link>
         </div>
