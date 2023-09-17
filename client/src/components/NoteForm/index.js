@@ -86,10 +86,12 @@ const NoteForm = (props) => {
             onChange={handleChange}
           >
             <option value="">Choose a category</option>
-            <option value="music">Music</option>
-            <option value="art">Art</option>
+            <option value="narrative">Narrative</option>
             <option value="gameplay">Gameplay</option>
-
+            <option value="characters">Characters</option>
+            <option value="art">Art</option>
+            <option value="music">Music</option>
+            <option value="other">Other</option>
           </select>
         </div>
 
