@@ -1,0 +1,7 @@
+div.card-body {
+    background-color: var(--darkest) !important;
+    color: var(--light) !important;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
