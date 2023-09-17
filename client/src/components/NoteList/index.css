@@ -3,6 +3,7 @@ div.notelist {
     height: 100vh;
     display: flex;
     flex-direction: column-reverse;
+    justify-content: flex-end;
 }
 
 div.noteform {
