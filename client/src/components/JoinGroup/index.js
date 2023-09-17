@@ -39,10 +39,16 @@ function JoinGroup({groupId, userId}) {
 
     if (!isMember) {
   return (
-    null
-  );
+<div className="joingroup p-4 my-2">
+  <p>Please Login to Join</p>
+  <Button onClick={groupJoin} className="mt-3 bg-primary">Join group</Button>
+  <Button 
+  onClick={home} 
+  className="mt-3 bg-danger">No thanks</Button>
+</div>  );
 } return <>
 <div className="joingroup p-4 my-2">
+  <p>Please Login to Join</p>
   <Button onClick={groupJoin} className="mt-3 bg-primary">Join group</Button>
   <Button 
   onClick={home} 
