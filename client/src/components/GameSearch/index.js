@@ -103,12 +103,36 @@ const GameComponent = () => {
 
   console.log('group.gameName', groupData?.group?.gameName);
 
+  const changeGame = async () => {
+    setSearch('');
+    setSelectedGame('');
+    // post selected game to group game.name, game.desk, game.image.small_url using the update group mutation
+    if (groupId && groupData) {
+      const groupName = groupData?.group?.groupName;
+
+      try {
+        await updateGroup({
+          variables: {
+            _id: groupId,
+            groupName,
+            gameName: '',
+            gameDescription: '',
+            gameImage: ''
+          },
+        });
+        window.location.reload();
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  };
+
   if (groupData?.group?.gameName) {
 
     return (
       <div className='selectedGame'>
         <h1>Selected Game</h1>
-        <button onClick={() => setSelectedGame(null)}>Change Game</button>
+        <button onClick={changeGame}>Change Game</button>
         <h2>{groupData.group.gameName}</h2>
         <img src={groupData.group.gameImage} alt={groupData.group.gameName} />
         <p>Description: {groupData.group.gameDescription}</p>
