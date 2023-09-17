@@ -29,6 +29,11 @@ const GameComponent = () => {
       setLoading(true);
       const response = await fetch(apiUrl);
       const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error);
+      }
+
       setGames(data.results || []);
       setHighlightedIndex(-1);
     } catch (error) {
