@@ -39,15 +39,16 @@ function JoinGroup({groupId, userId}) {
 
     if (!isMember) {
   return (
-    <>
-      <div className="joingroup p-4 my-2">
-        <Button onClick={groupJoin} className="mt-3 bg-primary">Join group</Button>
-        <Button 
-        onClick={home} 
-        className="mt-3 bg-danger">No thanks</Button>
-      </div>
-    </>
+    null
   );
+} return <>
+<div className="joingroup p-4 my-2">
+  <Button onClick={groupJoin} className="mt-3 bg-primary">Join group</Button>
+  <Button 
+  onClick={home} 
+  className="mt-3 bg-danger">No thanks</Button>
+</div>
+</>
 }
-};
+
 export default JoinGroup;
