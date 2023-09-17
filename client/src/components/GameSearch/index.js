@@ -150,12 +150,16 @@ const GameComponent = () => {
     }
   };
 
+  const { data: meData } = useQuery(GET_ME);
+  console.log('meData', meData);
 
   if (selectedGame) {
   return (
     <div className='selectedGame'>
       <h1>Selected Game</h1>
-      <button onClick={changeGame}>Change Game</button>
+      {groupData?.group?.groupOwner === meData?.me?._id && (
+        <button onClick={changeGame}>Change Game</button>
+      )}
       <h2>{selectedGame.name}</h2>
       <img src={selectedGame.image?.small_url} alt={selectedGame.name} />
       <p>Description: {selectedGame.deck}</p>
@@ -165,7 +169,9 @@ const GameComponent = () => {
     return (
       <div className='selectedGame'>
         <h1>Selected Game</h1>
+        {groupData?.group?.groupOwner === meData?.me?._id && (
         <button onClick={changeGame}>Change Game</button>
+      )}
         <h2>{groupData.group.gameName}</h2>
         <img src={groupData.group.gameImage} alt={groupData.group.gameName} />
         <p>Description: {groupData.group.gameDescription}</p>

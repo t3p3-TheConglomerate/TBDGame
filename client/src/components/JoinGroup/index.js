@@ -3,7 +3,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import { Container, Card, Button, Row, Col } from "react-bootstrap";
 
 import spinner from "../../assets/spinner.gif";
-import { QUERY_GROUP } from "../../utils/queries";
+import { QUERY_GROUP, GET_ME } from "../../utils/queries";
 import { ADD_MEMBER } from "../../utils/mutations";
 import { Link } from "react-router-dom";
 
@@ -29,6 +29,15 @@ function JoinGroup({groupId, userId}) {
         window.location.replace("/");
     };
 
+    const { data: groupData } = useQuery(QUERY_GROUP, {
+      variables: { groupId: groupId },
+    });
+
+    const { data: meData } = useQuery(GET_ME);
+
+    const isMember = !groupData?.group?.groupMembers?.includes(meData?.me?._id);
+
+    if (!isMember) {
   return (
     <>
       <div className="joingroup p-4 my-2">
@@ -40,5 +49,5 @@ function JoinGroup({groupId, userId}) {
     </>
   );
 }
-
+};
 export default JoinGroup;
