@@ -1,9 +1,11 @@
 div.notelist {
-    overflow-y: scroll;
-    height: 100vh;
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: flex-end;
+    overflow-y: auto;
+    max-height: 100vw;
+}
+
+ul.title {
+display: flex;
+flex-direction: column-reverse;
 }
 
 div.noteform {
