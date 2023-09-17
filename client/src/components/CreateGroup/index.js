@@ -72,7 +72,7 @@ const CreateGroup = () => {
         <form onSubmit={handleFormSubmit}>
           <label className="form-label" htmlFor="category">Group Name</label>
           <input className="form-control" name="GroupName" placeholder="Add group name here!" onChange={(e) => setFormState(e.target.value)}/>
-          <button className="bg-secondary">SEARCH</button>
+          {/* <button className="bg-secondary">SEARCH</button> */}
           <button>Create</button>
         </form>
       </Modal>

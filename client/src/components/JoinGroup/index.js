@@ -23,14 +23,18 @@ function JoinGroup({groupId, userId}) {
         } catch (err) {
             console.error(err);
         }
-    }
+    };
+
+    const home = () => {
+        window.location.replace("/");
+    };
 
   return (
     <>
       <div className="joingroup p-4 my-2">
         <Button onClick={groupJoin} className="mt-3 bg-primary">Join group</Button>
         <Button 
-        // onClick={redirect to home} 
+        onClick={home} 
         className="mt-3 bg-danger">No thanks</Button>
       </div>
     </>
