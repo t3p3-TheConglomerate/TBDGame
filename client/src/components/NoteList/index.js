@@ -46,19 +46,13 @@ const NoteList = ({ note, group }) => {
   return (
     <>
       <li itemType="note" id={note.category}>
-        <div key={note._id} className="card m-3">
-          <h4 className="card-header bg-secondary text-light p-2 m-0">
-            {note.noteAuthor} on {note.category}<br />
-            <span style={{ fontSize: "1rem" }}>
-              Made a note {note.createdAt}
-            </span>
-          </h4>
-          <div className="card-body bg-dark p-2">
-            <p>{note.noteText}</p>
-          </div>
+        <div key={note._id} className="note m-3 p-4">
+        <h5 className="mb-3">{note.noteText}</h5>
+          <p>
+            Created by {note.noteAuthor} on {note.category} on {note.createdAt}
+          </p>
           {me.username === note.noteAuthor && (
             <button
-              className="btn btn-dark"
               onClick={() => handleDeleteNote()}
             >
             Delete this note

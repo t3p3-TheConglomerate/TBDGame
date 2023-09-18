@@ -12,10 +12,9 @@ const MemberList = (props) => {
 
   
   return (
-    <div key={data?.user?._id} className="card mb-3">
-      <div className="card-body bg-light p-2">
-        <p style={{ color: 'white' }}>{data?.user?.username}</p>
-      </div>
+    <div key={data?.user?._id} className="list-group-item">
+
+{data?.user?.username}
     </div>
   );
 };

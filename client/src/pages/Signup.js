@@ -33,13 +33,7 @@ function Signup(props) {
   return (
     <div className="container signup my-4">
       <div className="flex-row">
-      <div className="col-6">
-          <img src="./dwarf2.png" className="dwarf"></img>
-          </div>
-      <div className="col-6 welcome-msg">
-          <h1>Ah, well met, weary traveler!</h1>
-          <h4>Ye've stumbled upon Ullr's Tavern, the finest establishment this side of the Misty Mountains.</h4>
-          <p>Aye, we dwarves may be known for our love of stone and gold, but here, we treasure good company and a hearty mug of ale just as much. Take a load off, friend, and find yerself a cozy seat at any table that tickles yer fancy. Our hearth's warmth and the songs of the hearthlings will chase away the chill of the road, and I promise ye won't find a finer ale in all of Middle-earth.</p>
+      <div className="col-4">
                     <div className="card p-4">
 
           <h2>Signup</h2>

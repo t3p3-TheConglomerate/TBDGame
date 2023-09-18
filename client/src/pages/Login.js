@@ -31,6 +31,8 @@ function Login(props) {
 
   return (
     <div className="container my-4">
+      <div className="flex-row">
+        <div className="col-4">
       <div className="card p-4">
 
       <h2>Login</h2>
@@ -64,6 +66,8 @@ function Login(props) {
 
       </form>
       <Link to="/signup">Signup first</Link>
+      </div>
+      </div>
       </div>
     </div>
   );
