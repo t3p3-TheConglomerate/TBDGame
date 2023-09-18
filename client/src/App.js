@@ -60,13 +60,13 @@ function App() {
                 element={<Signup />} 
               />
               <Route
-                path="/group"
+                path="/group/:groupId"
                 element={<Group />}
               />
-              <Route
+              {/* <Route
                 path="/group/:groupId"
                 element={<ApiTest />}
-              />
+              /> */}
               {/* <Route 
                 path="/success" 
                 element={<Success />} 

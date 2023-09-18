@@ -43,8 +43,8 @@ const NoteList = ({ note, group }) => {
   return (
     <>
       <li>
-        <div key={note._id} className="card mb-3">
-          <h4 className="card-header bg-primary text-light p-2 m-0">
+        <div key={note._id} className="card m-3">
+          <h4 className="card-header bg-secondary text-light p-2 m-0">
             {note.noteAuthor} on {note.category}<br />
             <span style={{ fontSize: "1rem" }}>
               Made a note {note.createdAt}
@@ -54,7 +54,7 @@ const NoteList = ({ note, group }) => {
             <p>{note.noteText}</p>
           </div>
           <button
-            className="btn btn-danger"
+            className="btn btn-dark"
             onClick={() => handleDeleteNote()}
           >
             Delete this note

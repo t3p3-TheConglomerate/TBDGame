@@ -9,19 +9,22 @@ function GroupSidebar() {
   // const { _id,  gameName, gameDescription, gameImage, groupOwner, groupMembers, notes } = Group;
 
   return (
-    <div className="container">
-      <div className="game">
+    <div>
+    <div className="card p-4">
         <GameComponent />
         <div>
-          <h3>Members</h3>
-          <ul>
+        <div className="mt-3 mb-1">
+          <ul className="list-group">
             <li className="member">
               <MemberList />
             </li>
           </ul>
+          </div>
         </div>
       </div>
     </div>
+
+    
   );
 }
 
