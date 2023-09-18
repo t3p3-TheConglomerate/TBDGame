@@ -45,8 +45,8 @@ const NoteList = ({ note, group }) => {
 
   return (
     <>
-      <li itemType="note" id={note.category}>
-        <div key={note._id} className="note m-3 p-4">
+      <li id={note.category}>
+        <div key={note._id} className="note mt-3 p-4">
         <h5 className="mb-3">{note.noteText}</h5>
           <p>
             Created by {note.noteAuthor} on {note.category} on {note.createdAt}

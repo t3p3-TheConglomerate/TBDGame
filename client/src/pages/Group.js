@@ -64,7 +64,6 @@ const Home = () => {
 
   return (
     <main className="container my-1">
-
       <div className="flex-row justify-center">
         <div className="col-12 col-md-4 mb-3">
         <div key={data?.group?.groupName} className="card mb-3 p-4"><h1>{data?.group?.groupName}</h1></div>
@@ -72,7 +71,7 @@ const Home = () => {
           <GroupSidebar />
 
         </div>
-        <div className="col-12 col-md-8 mb-3">
+        <div className="col-12 col-md-8">
           {/* Note appears on the Group page and contains a single note */}
           {/* <Note />
           <Note />
@@ -80,10 +79,10 @@ const Home = () => {
 
           {/* NoteForm appears on the Group page and is used to add notes */}
           <NoteForm groupId={group?._id} username={meData?.me?.username}/>
-          <div className="col-12 col-md-6 mb-3">
+          <div className="col-12 card mt-3 noteform">
             <form 
             >
-              <div className="m-3">
+              <div>
                 <select
 
                   className="form-select"
