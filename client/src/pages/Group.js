@@ -64,9 +64,7 @@ const Home = () => {
 
   return (
     <main className="container my-1">
-      <div className="flex-row justify-center display-4">
-      {group.groupName}
-      </div>
+
       <div className="flex-row justify-center">
         <div className="col-12 col-md-4 mb-3">
         <div key={data?.group?.groupName} className="card mb-3 p-4"><h1>{data?.group?.groupName}</h1></div>
