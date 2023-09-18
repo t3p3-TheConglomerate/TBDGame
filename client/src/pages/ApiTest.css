@@ -10,11 +10,11 @@ div.name {
     font-size: larger;
 }
 
-div.container {
+/* div.container {
     display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
-}
+} */
 
 div.container div {
     border: 1px solid black;

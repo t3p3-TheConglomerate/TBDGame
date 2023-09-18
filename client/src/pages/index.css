@@ -328,34 +328,6 @@ input:focus {
   padding: 1rem 0 .5rem 0;
 }
 
-.signup {
-  background-image: url(./assets/dwarf1.png);
-  background-size: cover;
-};
-
-.welcome-msg {
-  padding: 4rem;
-}
-
-.welcome-msg p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  line-height: tight;
-  color: var(--light);
-  font-weight: 300;
-}
-
-.welcome-msg h1 {
-  font-size: 3rem;
-}
-
-.welcome-msg h3 {
-  font-size: 1.75rem;
-  margin-bottom: 2rem;
-  color: var(--light);
-  font-weight: 300;
-}
-
 @media screen and (max-width: 768px) {
   .card {
     width: 100%;
