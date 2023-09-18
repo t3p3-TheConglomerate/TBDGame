@@ -328,35 +328,6 @@ input:focus {
   padding: 1rem 0 .5rem 0;
 }
 
-.dwarf {
-  border-radius: 2.5rem;
-  box-shadow: #2d0d00 0 1rem, #2d0d00 1rem;
-  /* width: 300px; */
-};
-
-.welcome-msg {
-  padding: 4rem;
-}
-
-.welcome-msg p {
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  line-height: tight;
-  color: var(--light);
-  font-weight: 300;
-}
-
-.welcome-msg h1 {
-  font-size: 3rem;
-}
-
-.welcome-msg h3 {
-  font-size: 1.75rem;
-  margin-bottom: 2rem;
-  color: var(--light);
-  font-weight: 300;
-}
-
 @media screen and (max-width: 768px) {
   .card {
     width: 100%;
