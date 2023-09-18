@@ -19,9 +19,9 @@ const NoteForm = (props) => {
     update(cache, { data: { addNote } }) {
       try {
         const {group} = cache.readQuery({ query: QUERY_NOTE, variables: { id: props.groupId } });
-        console.log("group", group);
-       console.log("cached notes", group);
-       console.log("full list", [...group.notes, addNote]);
+        // console.log("group", group);
+      //  console.log("cached notes", group);
+      //  console.log("full list", [...group.notes, addNote]);
         cache.writeQuery({
           query: QUERY_NOTE,
           data: { group, notes: [...group.notes, addNote] },

@@ -31,4 +31,5 @@ form {
 
 .selectedGame {
     display: inline-block;
+    width: 100%;
 }

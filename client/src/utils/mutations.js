@@ -37,22 +37,17 @@ mutation Mutation($groupId: ID!, $noteText: String!, $noteAuthor: String!, $cate
 `;
 
 export const DELETE_NOTE = gql`
-  mutation deleteNote($noteId: ID!) {
-    deleteNote(noteId: $noteId) {
-      _id
-      noteText
-      noteAuthor
-      createdAt
-      category
-      comments {
-        _id
-        commentText
-        commentAuthor
-        createdAt
-      }
+  mutation deleteNote($groupId: ID!, $noteId: ID!) {
+    deleteNote(groupId: $groupId, noteId: $noteId) {
+     noteText
+    noteAuthor
+    category
+    _id
+    createdAt
     }
   }
 `;
+
 export const ADD_GROUP = gql`
   mutation addGroup($groupName: String, $gameName: String, $gameDescription: String, $gameImage: String, $username: String) {
     addGroup(groupName: $groupName, gameName: $gameName, gameDescription: $gameDescription, gameImage: $gameImage, username: $username) {
@@ -168,4 +163,4 @@ mutation addMember($_id: ID!, $groupId: ID!) {
       }
     }
   }
-`;                                                                                                                          
+`;

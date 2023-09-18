@@ -57,7 +57,7 @@ const typeDefs = gql`
     deleteGroup(_id: ID!): User
     changeOwner(_id: ID!, username: String!, email: String!): Group
     addNote(groupId: ID!, noteText: String!, noteAuthor: String!, category: String): Note
-    deleteNote(_id: ID!): Note    
+    deleteNote(groupId: ID!, noteId: ID!): Note    
     login(email: String!, password: String!): Auth
     addMember(_id: ID!, groupId: ID!): User
   }

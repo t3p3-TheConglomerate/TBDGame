@@ -8,7 +8,7 @@ const apiKey = process.env.REACT_APP_API_KEY;
 
 const GameComponent = () => {
   const { groupId } = useParams();
-  console.log('params check:', groupId)
+  // console.log('params check:', groupId)
   const [selectedGame, setSelectedGame] = useState(null);
   const [search, setSearch] = useState('');
   const [games, setGames] = useState([]);
@@ -23,14 +23,14 @@ const GameComponent = () => {
   const { data: groupData, loading: groupLoading, error: groupError } = useQuery(QUERY_SINGLE_GROUP, {
     variables: { id: groupId },
   });
-  console.log('check group data', groupData);
+  // console.log('check group data', groupData);
   const fetchData = async () => {
     try {
       setLoading(true);
       const response = await fetch(apiUrl);
       
       const text = await response.text();
-      console.log('api response: ', text);
+      // console.log('api response: ', text);
       
       const data = JSON.parse(text);
 
@@ -124,7 +124,7 @@ const GameComponent = () => {
     inputRef.current?.focus();
   }, []);
 
-  console.log('group.gameName', groupData?.group?.gameName);
+  // console.log('group.gameName', groupData?.group?.gameName);
 
   const changeGame = async () => {
     setSearch('');
@@ -151,7 +151,7 @@ const GameComponent = () => {
   };
 
   const { data: meData } = useQuery(GET_ME);
-  console.log('meData', meData);
+  // console.log('meData', meData);
 
   if (selectedGame) {
   return (

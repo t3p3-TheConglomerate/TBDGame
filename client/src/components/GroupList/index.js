@@ -16,9 +16,9 @@ import GroupCard from "../GroupCard";
 function GroupList() {
   const { loading, data } = useQuery(GET_ME);
   const userData = data?.me || data?.user || {};
-  console.log("me data",data);
-  console.log("user data",userData);
-  console.log(userData?.groups?.map((group) => {console.log(group._id)}));
+  // console.log("me data",data);
+  // console.log("user data",userData);
+  // console.log(userData?.groups?.map((group) => {console.log(group._id)}));
 
 
   return (

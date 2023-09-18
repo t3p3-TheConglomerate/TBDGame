@@ -143,22 +143,31 @@ const resolvers = {
         return noteToAdd;
       }
     },
-    deleteNote: async (parent, { _id }, context) => {
-      if (context.user) {
-        await Note.findOneAndDelete({ _id: _id });
-        return await Group.findOneAndUpdate(
-          {
-            _id: context.group._id,
-          },
-          {
-            $pull: { notes: { _id: _id } },
-          },
-          {
-            new: true,
-          }
-        );
+    deleteNote: async (_, { groupId, noteId }, context) => {
+      // Check if the user is authenticated
+      if (!context.user) {
+        throw new AuthenticationError('You must be logged in to delete a note.');
+      }
+    
+      try {
+        console.log('Deleting note:', noteId);
+        const deletedNote = await Note.findByIdAndRemove(noteId);
+    
+        if (!deletedNote) {
+          throw new Error('Note not found');
+        }
+    
+        await Group.findByIdAndUpdate(groupId, { $pull: { notes: {_id: noteId }} });
+    
+        console.log('Note deleted successfully');
+        
+        return deletedNote;
+      } catch (error) {
+        console.error('Error deleting note:', error);
+        throw error;
       }
     },
+    
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 

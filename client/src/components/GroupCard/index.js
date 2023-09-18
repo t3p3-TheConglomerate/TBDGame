@@ -11,7 +11,7 @@ const GroupCard = ({group}) => {
        variables: { id: group },
    });
 
-   console.log("data",data);
+  //  console.log("data",data);
 
 
 
