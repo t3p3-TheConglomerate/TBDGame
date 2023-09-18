@@ -34,9 +34,7 @@ const Home = () => {
 
   return (
     <main className="container my-1">
-      <div className="flex-row justify-center">
-      {group.groupName}
-      </div>
+
       <div className="flex-row justify-center">
         <div className="col-12 col-md-4 mb-3">
         

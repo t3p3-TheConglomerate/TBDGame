@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import MemberList from "../MemberList";
 import GameComponent from "../GameSearch";
 // import MediaQuery from "react-responsive";
-import { Col, Row } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 
 function GroupSidebar() {
   // const { _id,  gameName, gameDescription, gameImage, groupOwner, groupMembers, notes } = Group;
@@ -14,6 +14,7 @@ function GroupSidebar() {
         <GameComponent />
         <div>
         <div className="mt-3 mb-1">
+        <h3 className="mb-2">Members</h3>
           <ul className="list-group">
             <li className="member">
               <MemberList />

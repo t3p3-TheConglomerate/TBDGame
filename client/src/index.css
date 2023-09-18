@@ -310,11 +310,15 @@ input:focus {
   border-radius: 0.25rem;
 }
 
+.list-group {
+  border: 1px solid var(--tertiary);
+}
+
 .list-group-item {
   background-color: var(--dark);
   color: var(--light);
   font-size: .9rem;
-  border: 1px solid var(--tertiary);
+  border-bottom: 1px solid var(--tertiary);
 
 }
 
