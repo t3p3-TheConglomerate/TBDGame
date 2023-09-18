@@ -26,7 +26,7 @@ const GroupCard2 = ({group}) => {
             ) : null}
             <Card.Body key={data?.group?.groupId}>
             <Card.Title>{data?.group?.groupName}</Card.Title>
-            <p className="small">Group: {data?.group?.groupName}</p>
+            {/* <p className="small">Group: {data?.group?.groupName}</p> */}
             <Card.Text>Playing: {data?.group?.gameName}</Card.Text>
             <Button
                 className="btn-block enterbutton"
