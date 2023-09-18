@@ -32,9 +32,39 @@ const Home = () => {
     );
   }
 
+  const handleChange = (event) => {
+    event.preventDefault();
+    console.log(event.target.value);
+    const notesList = document.querySelectorAll(`#${event.target.value}`) || {};
+    const allNotes = document.querySelectorAll("li[itemType='note']");
+    console.log(notesList);
+    console.log(allNotes);
+
+    if(event.target.value === "all"){
+      for(var i = 0; i < allNotes.length; i++){
+        console.log(allNotes[i]);
+        // notesList[i].style.display = "block";
+        if(allNotes[i].id != event.target.value){
+          allNotes[i].style.display = "block";
+        }
+      }
+      return;
+    }
+    else{
+      for(var i = 0; i < allNotes.length; i++){
+        console.log(allNotes[i]);
+        allNotes[i].style.display = "block";
+        if(allNotes[i].id != event.target.value){
+          allNotes[i].style.display = "none";
+        }
+      }
+    }
+    return;
+  };
+
   return (
     <main className="container my-1">
-      <div className="flex-row justify-center">
+      <div className="flex-row justify-center display-4">
       {group.groupName}
       </div>
       <div className="flex-row justify-center">
@@ -52,15 +82,36 @@ const Home = () => {
 
           {/* NoteForm appears on the Group page and is used to add notes */}
           <NoteForm groupId={group?._id} username={meData?.me?.username}/>
-          {group?.notes?.map((note) => {
-               
-               return (
+          <div className="col-12 col-md-6 mb-3">
+            <form 
+            >
+              <div className="m-3">
+                <select
 
-                 <NoteList note={note} key={note._id} group={group} />
+                  className="form-select"
+                  name="category"
+                  onChange={handleChange}
+                >
+                  <option value="all">Filter notes by categories</option>
+                  <option value="all">All Categories</option>
+                  <option value="narrative">Narrative</option>
+                  <option value="gameplay">Gameplay</option>
+                  <option value="characters">Characters</option>
+                  <option value="art">Art</option>
+                  <option value="music">Music</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </form>
+          </div>
+            {group?.notes?.map((note) => {
+                
+                return (
 
-               )
-             })}
+                  <NoteList note={note} key={note._id} group={group} />
 
+                )
+              })}
         </div>
         {/* <div className="col-12 col-md-8 mb-3">
         
