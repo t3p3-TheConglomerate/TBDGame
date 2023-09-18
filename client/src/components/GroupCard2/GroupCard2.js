@@ -24,7 +24,8 @@ const GroupCard2 = ({group}) => {
                 variant="top"
             />
             ) : null}
-            <Card.Body key={data?.group?.groupId}>
+            {/* <Card.Body key={data?.group?.groupId}> */}
+            <div key={data?.group?.groupId}>
             <Card.Title>{data?.group?.groupName}</Card.Title>
             <p className="small">Group: {data?.group?.groupName}</p>
             <Card.Text>Playing: {data?.group?.gameName}</Card.Text>
@@ -33,7 +34,8 @@ const GroupCard2 = ({group}) => {
             >
                 <Link to={`/group/${group}`}>View Group</Link>
             </Button>
-            </Card.Body>
+            {/* </Card.Body> */}
+            </div>
         </div>
     </Col>
     );

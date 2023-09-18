@@ -45,7 +45,7 @@ const NoteList = ({ note, group }) => {
 
   return (
     <>
-      <li id={note.category}>
+      <li itemType="note" id={note.category}>
         <div key={note._id} className="note mt-3 p-4">
         <h5 className="mb-3">{note.noteText}</h5>
           <p>
