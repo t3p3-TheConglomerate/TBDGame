@@ -293,7 +293,7 @@ input:focus {
   background-color: var(--dark);
   color: var(--light);
   border: 1px solid var(--tertiary);
-  margin: 0 1rem 1rem 0;
+  /* margin: 0 1rem 1rem 0; */
   border-radius: .25rem;
 }
 

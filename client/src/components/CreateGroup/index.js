@@ -58,6 +58,7 @@ const CreateGroup = () => {
   return (
     <div className="my-2">
       <button className="createGroup" onClick={openModal}>Create Group</button>
+
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -65,16 +66,14 @@ const CreateGroup = () => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-
         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Create a group</h2>
-        <button onClick={closeModal}>close</button>
 
         <form onSubmit={handleFormSubmit}>
           <label className="form-label" htmlFor="category">Group Name</label>
           <input className="form-control" name="GroupName" placeholder="Add group name here!" onChange={(e) => setFormState(e.target.value)}/>
-          {/* <button className="bg-secondary">SEARCH</button> */}
           <button>Create</button>
         </form>
+        <button onClick={closeModal}>Cancel</button>
       </Modal>
     </div>
   );

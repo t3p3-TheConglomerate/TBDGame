@@ -55,8 +55,8 @@ const login = () => {
 
   if (loggedIn) {
     return (
-      <main className="container my-1">
-        <div className="flex-row justify-center pb-3">
+      <main className="container my-1]">
+        <div className="flex-row justify-between items-center">
           <div className="col-7 col-sm-8 col-md-9">
             <h4 className="mt-3">Welcome Back!</h4>
           </div>
@@ -66,7 +66,7 @@ const login = () => {
             <CreateGroup />
           </div>
         </div>
-        <div className="row gx-4 gy-2">
+        <div className="mt-4">
 
           {/* GroupList displays on the Home page and contains a GroupCard for each Group that the User has joined */}
 

@@ -23,7 +23,7 @@ function GroupList() {
 
   return (
     <>
-      <div className="flex-row">
+      <div className="row gy-4">
         {
         // userData &&
         //   userData?.groups &&

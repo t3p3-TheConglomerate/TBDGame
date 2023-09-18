@@ -3,20 +3,18 @@ button {
     color: var(--secondary);
 }
 
+button:hover {
+    background-color: var(--light);
+    color: var(--dark);
+}
+
 div.ReactModal__Content {
     background-color: var(--dark) !important;
-    color: var(--primary) !important;
-}
-
-label.form-label {
-    color: var(--primary) !important;
-}
-
-h2 {
-    color: var(--primary) !important; 
 }
 
 input.form-control {
-    background-color: var(--secondary) !important;
-    color: var(--primary) !important;
+    background-color: var(--darkest) !important;
+    color: var(--light) !important;
+    border: none;
+    padding: .75rem;
 }

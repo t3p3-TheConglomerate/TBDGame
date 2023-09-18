@@ -3,7 +3,7 @@ div.card {
     flex-direction: column;
     width: 100%;
     padding: 2rem;
-}
+    }
 
 div.name {
     align-items: center;
