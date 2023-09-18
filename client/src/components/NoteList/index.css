@@ -27,6 +27,10 @@ div.noteform {
     width: 100%;
 }
 
+div.note {
+    word-wrap: break-word;
+}
+
 h5 {
     font-weight: 100;
 }
