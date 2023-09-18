@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 import GameComponent from "../components/GameSearch";
-import "./ApiTest.css";
+// import "./ApiTest.css";
 import MemberList from "../components/MemberList";
 import NoteForm from "../components/NoteForm";
 import NoteList from "../components/NoteList";
@@ -37,7 +37,7 @@ const Home = () => {
 
       <div className="flex-row justify-center">
         <div className="col-12 col-md-4 mb-3">
-        
+        <div key={data?.group?.groupName} className="card mb-3 p-4"><h1>{data?.group?.groupName}</h1></div>
           {/* GroupCard displays on the Home page for each Group that the User has joined */}
           <GroupSidebar />
 

@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { QUERY_SINGLE_GROUP, QUERY_SINGLE_USER } from "../../utils/queries";
 import MemberName from "../MemberName";
 import { Button } from "react-bootstrap";
+import '../../index.css';
 
 const MemberList = () => {
   const { groupId } = useParams();

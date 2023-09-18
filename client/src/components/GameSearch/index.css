@@ -20,8 +20,9 @@ form {
   width: fit-content;
 }
 
-.gameList h2 {
+.gameList h3 {
   font-size: 1rem;
+  margin-bottom: 4rem;
 }
 
 .gameList.highlighted {

@@ -181,7 +181,7 @@ const GameComponent = () => {
   
   return (
     <div className='searchContainer'>
-      <h1>Game Search</h1>
+      <h3>Game Search</h3>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
