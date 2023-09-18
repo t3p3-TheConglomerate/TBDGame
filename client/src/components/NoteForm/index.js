@@ -103,7 +103,7 @@ const NoteForm = (props) => {
         </div>
 
 
-          <button className="button" type="submit">
+          <button className="button bg-primary text-dark" type="submit">
             Post Note
           </button>
 

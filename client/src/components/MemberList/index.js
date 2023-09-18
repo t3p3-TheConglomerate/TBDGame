@@ -36,7 +36,7 @@ const MemberList = () => {
           <MemberName memberId={member} key={member._id}/>
         ))}
         </ul>
-      <button onClick={() => copyInvite("URL Copied!")}>{buttonText}</button>
+      <button className="bg-warning text-dark" onClick={() => copyInvite("URL Copied!")}>{buttonText}</button>
     </div>
   );
 };

@@ -293,6 +293,11 @@ input:focus {
   color: var(--darkest);
 }
 
+.enterbutton:hover a {
+  background-color: var(--light);
+  color: var(--dark);
+}
+
 .gamecard {
   width: 100%;
   text-align: left;
