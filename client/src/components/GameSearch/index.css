@@ -1,35 +1,40 @@
 li.gameList {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 li.gameList:hover {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 form {
-   display: inline;
+  display: inline;
 }
 
 .gameList {
-    display: block;
-    text-decoration: none;
-    width: fit-content;
+  display: block;
+  text-decoration: none;
+  width: fit-content;
 }
 
 .gameList h2 {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .gameList.highlighted {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 .selectedGame {
+<<<<<<< HEAD
     display: inline-block;
     width: 100%;
+=======
+  display: inline-block;
+  width: 100%;
+>>>>>>> 8e0f9d9c7f344f29609e8639c29508b8d25a0966
 }
