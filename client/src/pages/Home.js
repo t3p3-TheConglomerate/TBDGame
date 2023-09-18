@@ -9,6 +9,11 @@ import GroupCard from "../components/GroupCard";
 import Note from "../components/Note";
 import JoinGroup from "../components/JoinGroup";
 import AuthService from "../utils/auth";
+import "../../src/index.css"
+import { Button } from "react-bootstrap";
+import Signup from "./Signup";
+
+
 
 import { QUERY_GROUP } from "../utils/queries";
 
@@ -17,18 +22,34 @@ const Home = () => {
   const { loading, data } = useQuery(QUERY_GROUP);
   const notes = data?.notes || [];
 
+  const signup = () => {
+    window.location.replace("/Signup");
+};
+
+const login = () => {
+  window.location.replace("/Login");
+};
+
   const loggedIn = AuthService.loggedIn();
 
   if (!loggedIn) {
     return (
-      <main className="container my-1">
-        <div className="flex-row justify-center pb-3">
-          <div className="col-7 col-sm-8 col-md-9">
-            <h4 className="mt-3">Ready to start an Adventure?</h4>
+      <div className="container signup my-4">
+      <div className="row mx-10">
+      <div className="col-6">
+          <img src="./dwarf2.png" className="dwarf"></img>
           </div>
+      <div className="col-6 welcome-msg">
+          <h1>Ah, well met, weary traveler!</h1>
+          <h4>Ye've stumbled upon Ullr's Tavern, the finest establishment this side of the Misty Mountains.</h4>
+          <p>Aye, we dwarves may be known for our love of stone and gold, but here, we treasure good company and a hearty mug of ale just as much. Take a load off, friend, and find yerself a cozy seat at any table that tickles yer fancy. Our hearth's warmth and the songs of the hearthlings will chase away the chill of the road, and I promise ye won't find a finer ale in all of Middle-earth.</p>
+          <Button onClick={login}>Login</Button>
+          <Button onClick={signup}>Signup</Button>
 
         </div>
-      </main>
+        </div>
+
+    </div>
     );
   };
 
