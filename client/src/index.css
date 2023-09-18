@@ -240,6 +240,7 @@ input:focus {
   background-color: var(--dark);
   color: var(--light);
   border: 1px solid var(--tertiary);
+  margin: 0 auto;
 }
 
 .noteform {
@@ -268,8 +269,20 @@ input:focus {
   background-color: var(--dark);
   color: var(--light);
   border: 1px solid var(--tertiary);
-  margin-left: 1rem;
+  margin: 0 auto;
   border-radius: .25rem;
+  text-align: center;
+}
+
+.joingroup button {
+  font-weight: 600;
+  border: none;
+}
+
+.joingroup button:hover {
+  font-weight: 600;
+  border: none;
+  color: var(--darkest);
 }
 
 .groupcard {

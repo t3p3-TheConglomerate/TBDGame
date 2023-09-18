@@ -51,11 +51,16 @@ function JoinGroup({groupId, userId}) {
     } 
     else{
     return (
-      <div className="joingroup p-4 my-2">
+      <div className="container">
+        <div className="row">
+      <div className="joingroup col-3 p-4 my-2">
+        <h1 className="mb-3">Aye, ye gotta be a member if you want to get in!</h1>
         <Button onClick={groupJoin} className="mt-3 bg-primary">Join group</Button>
         <Button 
         onClick={home} 
         className="mt-3 bg-danger">No thanks</Button>
+        </div>
+      </div>
       </div>  )
     }
 }

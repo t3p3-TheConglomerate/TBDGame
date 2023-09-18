@@ -31,11 +31,9 @@ function Signup(props) {
   };
 
   return (
-    <div className="container signup my-4">
-      <div className="flex-row">
-      <div className="col-4">
-                    <div className="card p-4">
-
+    <div className="container my-4">
+      <div className="row">
+      <div className="col-4 card text-light">
           <h2>Signup</h2>
           <form onSubmit={handleFormSubmit}>
             <div className="flex-row space-between my-2">
@@ -77,7 +75,6 @@ function Signup(props) {
         </div>
         </div>
 
-    </div>
   );
 }
 
