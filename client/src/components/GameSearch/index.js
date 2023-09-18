@@ -156,11 +156,11 @@ const GameComponent = () => {
   if (selectedGame) {
   return (
     <div className='selectedGame'>
-      <h1>Selected Game</h1>
+      <h3>Selected Game</h3>
       {groupData?.group?.groupOwner === meData?.me?._id && (
         <button onClick={changeGame}>Change Game</button>
       )}
-      <h2>{selectedGame.name}</h2>
+      <h4>{selectedGame.name}</h4>
       <img src={selectedGame.image?.small_url} alt={selectedGame.name} />
       <p>Description: {selectedGame.deck}</p>
     </div>
@@ -168,7 +168,7 @@ const GameComponent = () => {
 } else if (groupData?.group?.gameName) {
     return (
       <div className='selectedGame'>
-        <h1>Selected Game</h1>
+        <h4>Selected Game</h4>
         {groupData?.group?.groupOwner === meData?.me?._id && (
         <button onClick={changeGame}>Change Game</button>
       )}
