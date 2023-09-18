@@ -33,7 +33,7 @@ function Signup(props) {
   return (
     <div className="container my-4">
       <div className="row">
-        <div className="col-4">
+        <div className="col-12 col-sm-8 col-md-6 col-lg-4">
       <div className="card text-light">
           <h2 className="text-light">Signup</h2>
           <form onSubmit={handleFormSubmit}>
