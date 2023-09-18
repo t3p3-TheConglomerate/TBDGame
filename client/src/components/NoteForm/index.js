@@ -60,7 +60,7 @@ const NoteForm = (props) => {
   };
 
   return (
-    <div className="noteform p-4 my-2">
+    <div className="noteform p-4 my-0">
       {/* <h3>Add a Note</h3>
 
       <p

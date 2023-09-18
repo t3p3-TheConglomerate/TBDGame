@@ -5,6 +5,7 @@ div.flex-row {
 div.card.border-dark {
     align-items: stretch;
     height: 100%;
+    background-color: var(--darkest);
 }
 
 img.card-img-top {

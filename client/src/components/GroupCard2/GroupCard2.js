@@ -4,8 +4,7 @@ import { useParams } from "react-router-dom";
 import { QUERY_SINGLE_GROUP, QUERY_SINGLE_USER } from "../../utils/queries";
 import { Container, Card, Button, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "./index.css";
-
+import "../../index.css"
 import spinner from "../../assets/spinner.gif";
 
 const GroupCard2 = ({group}) => {
@@ -16,7 +15,7 @@ const GroupCard2 = ({group}) => {
 
     return (
         <Col key={data?.group?.groupName} md="4" sm="4">
-        <Card border="dark">
+        <div className="card">
             {data?.group?.gameImage ? (
             
             <Card.Img
@@ -35,7 +34,7 @@ const GroupCard2 = ({group}) => {
                 <Link to={`/group/${group}`}>View Group</Link>
             </Button>
             </Card.Body>
-        </Card>
+        </div>
     </Col>
     );
 };
