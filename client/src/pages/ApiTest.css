@@ -2,6 +2,7 @@ div.card {
     display: flex;
     flex-direction: column;
     width: 100%;
+    padding: 2rem;
 }
 
 div.name {
@@ -16,9 +17,9 @@ div.name {
     justify-content: space-between;
 } */
 
-div.container div {
+/* div.container div {
     border: 1px solid black;
-}
+} */
 
 div.game {
     width: 25vw;

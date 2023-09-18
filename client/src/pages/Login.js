@@ -35,7 +35,7 @@ function Login(props) {
         <div className="col-4">
       <div className="card p-4">
 
-      <h2>Login</h2>
+      <h2 className="text-light">Login</h2>
       <form onSubmit={handleFormSubmit}>
         <div className="flex-row space-between my-2">
           <label className="form-label" htmlFor="email">Email</label>
