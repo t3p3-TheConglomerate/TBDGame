@@ -6,7 +6,21 @@ import { QUERY_NOTE } from "../../utils/queries";
 
 const NoteList = ({ note, group }) => {
   // console.log('group:', group);
-  const [deleteNote, { error }] = useMutation(DELETE_NOTE);
+  const [deleteNote, { error }] = useMutation(DELETE_NOTE, {
+    update(cache) {
+      try {
+        const deletedNote = cache.identify({
+          __typename: "notes",
+          id: note._id
+        });
+    
+        cache.evict({ deletedNote });
+        cache.gc();
+      } catch (e) {
+        console.error(e);
+      }
+    },
+  });
 
   const handleDeleteNote = async () => {
     console.log('Note1:', note._id);
@@ -19,7 +33,7 @@ const NoteList = ({ note, group }) => {
       const response = await deleteNote({ variables: { groupId: groupId, noteId: noteId } });
       console.log("note2: ", noteId);
       console.log("group2: ", groupId);
-      window.location.reload();
+      // window.location.reload();
     } catch (err) {
       console.error('Mutation error:', err);
     }

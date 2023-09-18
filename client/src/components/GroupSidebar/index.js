@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import MemberList from "../MemberList";
 import GameComponent from "../GameSearch";
-import MediaQuery from "react-responsive";
+// import MediaQuery from "react-responsive";
 import { Col, Row } from "react-bootstrap";
 
 function GroupSidebar() {

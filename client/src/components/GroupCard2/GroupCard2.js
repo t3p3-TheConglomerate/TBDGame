@@ -10,12 +10,9 @@ import spinner from "../../assets/spinner.gif";
 
 const GroupCard2 = ({group}) => {
 
-//    console.log("group",group);
    const { loading, data } = useQuery(QUERY_SINGLE_GROUP, {
         variables: { id: group },
     });
-
-    console.log("data",data);
 
     return (
         <Col key={data?.group?.groupName} md="4" sm="4">

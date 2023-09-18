@@ -9,7 +9,7 @@ import NoteList from "../components/NoteList";
 import { QUERY_SINGLE_GROUP, GET_ME } from "../utils/queries";
 import JoinGroup from "../components/JoinGroup";
 import GroupSidebar from "../components/GroupSidebar";
-import MediaQuery from "react-responsive";
+// import MediaQuery from "react-responsive";
 
 // if username id === ownerName id then display change Game button
 
