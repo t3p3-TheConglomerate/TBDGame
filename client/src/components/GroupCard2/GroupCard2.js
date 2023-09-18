@@ -14,8 +14,8 @@ const GroupCard2 = ({group}) => {
     });
 
     return (
-        <Col key={data?.group?.groupName} md="4" sm="4">
-        <div className="card m-0">
+        <Col key={data?.group?.groupName} md="4" sm="6">
+        <div className="card">
             {data?.group?.gameImage ? (
             
             <Card.Img
