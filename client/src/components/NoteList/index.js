@@ -1,8 +1,8 @@
 import React from "react";
 import "./index.css";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { DELETE_NOTE } from "../../utils/mutations";
-import { QUERY_NOTE } from "../../utils/queries";
+import { GET_ME } from "../../utils/queries";
 
 const NoteList = ({ note, group }) => {
   // console.log('group:', group);
@@ -22,9 +22,12 @@ const NoteList = ({ note, group }) => {
     },
   });
 
+  const { data: meData } = useQuery(GET_ME);
+  const me = meData?.me || {};
+
   const handleDeleteNote = async () => {
-    console.log('Note1:', note._id);
-    console.log('Group1:', group._id);
+    console.log('Note1:', note);
+    console.log('me:', me);
 
     const noteId = note._id;
     const groupId = group._id;
@@ -53,12 +56,14 @@ const NoteList = ({ note, group }) => {
           <div className="card-body bg-dark p-2">
             <p>{note.noteText}</p>
           </div>
-          <button
-            className="btn btn-danger"
-            onClick={() => handleDeleteNote()}
-          >
+          {me.username === note.noteAuthor && (
+            <button
+              className="btn btn-danger"
+              onClick={() => handleDeleteNote()}
+            >
             Delete this note
           </button>
+           )} 
         </div>
       </li>
     </>
