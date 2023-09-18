@@ -328,9 +328,10 @@ input:focus {
   padding: 1rem 0 .5rem 0;
 }
 
-.signup {
-  background-image: url(./assets/dwarf1.png);
-  background-size: cover;
+.dwarf {
+  border-radius: 2.5rem;
+  box-shadow: #2d0d00 0 1rem, #2d0d00 1rem;
+  /* width: 300px; */
 };
 
 .welcome-msg {

@@ -5,8 +5,6 @@ import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
 import "../../src/index.css"
 
-
-
 function Signup(props) {
   const [formState, setFormState] = useState({
     username: "",
@@ -35,16 +33,14 @@ function Signup(props) {
   return (
     <div className="container signup my-4">
       <div className="flex-row">
-        <div className="col-9 welcome-msg">
+      <div className="col-6">
+          <img src="./dwarf2.png" className="dwarf"></img>
+          </div>
+      <div className="col-6 welcome-msg">
           <h1>Ah, well met, weary traveler!</h1>
-          <h3>Ye've stumbled upon Ullr's Tavern, the finest establishment this side of the Misty Mountains.</h3>
+          <h4>Ye've stumbled upon Ullr's Tavern, the finest establishment this side of the Misty Mountains.</h4>
           <p>Aye, we dwarves may be known for our love of stone and gold, but here, we treasure good company and a hearty mug of ale just as much. Take a load off, friend, and find yerself a cozy seat at any table that tickles yer fancy. Our hearth's warmth and the songs of the hearthlings will chase away the chill of the road, and I promise ye won't find a finer ale in all of Middle-earth.</p>
-
-          <p>If ye hunger for some proper dwarf grub, me wife Elara's got a stew simmerin' that'll stick to yer ribs and put a smile on yer face. And if tales of adventure or a game of dice strike yer fancy, well, we've no shortage of those here either. So, sit tight, enjoy the company, and let Ullr and his kin take care of yer needs. We've seen many a traveler's weariness, and by Durin's beard, we'll make sure ye leave here with a heart lighter than when ye arrived!
-          </p>
-        </div>
-        <div className="col-3">
-        <div className="card p-4">
+                    <div className="card p-4">
 
           <h2>Signup</h2>
           <form onSubmit={handleFormSubmit}>
@@ -84,8 +80,9 @@ function Signup(props) {
           </form>
           <Link to="/login">Login instead</Link>
         </div>
-      </div>
-      </div>
+        </div>
+        </div>
+
     </div>
   );
 }
