@@ -29,6 +29,10 @@
 - Node
 - Apollo
 - Giant Bomb API
+- Bcrypt
+- Http-proxy-middleware
+- Dotenv
+- JWT
 
 ## Link
 [Ullrs Tavern site](https://ullrstavern-2fd10886d05c.herokuapp.com/)
