@@ -1,0 +1,20 @@
+button {
+    background-color: var(--darker);
+    color: var(--secondary);
+}
+
+button:hover {
+    background-color: var(--light);
+    color: var(--dark);
+}
+
+div.ReactModal__Content {
+    background-color: var(--dark) !important;
+}
+
+input.form-control {
+    background-color: var(--darkest) !important;
+    color: var(--light) !important;
+    border: none;
+    padding: .75rem;
+}

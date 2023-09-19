@@ -1,0 +1,36 @@
+li.gameList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li.gameList:hover {
+  background-color: black;
+  color: white;
+}
+
+form {
+  display: inline;
+}
+
+.gameList {
+  display: block;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.gameList h3 {
+  font-size: .75rem;
+  margin-bottom: 4rem;
+}
+
+.gameList.highlighted {
+  background-color: black;
+  color: white;
+}
+
+.selectedGame {
+  display: inline-block;
+  width: 100%;
+}

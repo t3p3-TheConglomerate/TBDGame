@@ -1,0 +1,40 @@
+:root {
+    --primary: #0d6efd;
+    --secondary: #f2b558;
+    --tertiary: #4f1602;
+    --light: #fff4de;
+    --dark: #2d0d00;
+    --darker: #1d0800;
+    --darkest: #110400;
+    --error: rgb(228, 46, 1);
+    --spacing-one: calc(1rem * 0.5);
+    --spacing-two: calc(1rem);
+  }
+
+div.notelist {
+    overflow-y: auto;
+    max-height: 100vw;
+}
+
+ul.title {
+display: flex;
+flex-direction: column-reverse;
+}
+
+div.noteform {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+div.note {
+    word-wrap: break-word;
+}
+
+h5 {
+    font-weight: 100;
+}
+
+p {
+    color: var(-secondary)
+}

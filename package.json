@@ -1,5 +1,5 @@
 {
-  "name": "mern-shopping",
+  "name": "ullr-tavern",
   "version": "1.0.0",
   "description": "",
   "main": "server/server.js",
@@ -16,8 +16,15 @@
   "devDependencies": {
     "concurrently": "^5.1.0"
   },
-  "engines" : { 
-    "npm" : "8.19.2",
-    "node" : "16.18.0"
+  "dependencies": {
+    "axios": "^1.4.0",
+    "bootstrap": "^5.3.1",
+    "react-bootstrap": "^2.8.0",
+    "react-modal": "^3.16.1",
+    "react-responsive": "^9.0.2"
+  },
+  "engines": {
+    "npm": "8.19.2",
+    "node": "16.18.0"
   }
 }
