@@ -44,7 +44,7 @@
 
 This project is licensed under [MIT](https://opensource.org/licenses/MIT)
 
-* The URL of the GitHub repository, with a unique name and a README describing the project.
+[GitHub Repo](https://github.com/t3p3-TheConglomerate/UllrsTavern/tree/main)
 
 - - -
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
